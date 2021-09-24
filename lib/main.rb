@@ -8,3 +8,7 @@ end
 
 intro
 answer = gets.chomp
+
+if answer == '--quiz'
+  quiz
+end
