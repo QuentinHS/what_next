@@ -1,3 +1,19 @@
-[{ "id": 1, "question": "Are you more frequently:\nA practical sort of person OR\nA fanciful sort of person" },
-  { "id": 2, "question": "Are you more comfortable:\nAfter a decision OR\nBefore a decision" }
+[
+  { "id": 1, "question": "At a party do you:\nInteract with many, including strangers OR\nInteract with a few, known to you" },
+  { "id": 2, "question": "Are you more:\nRealistic than speculative OR\nSpeculative than realistic" },
+  { "id": 3, "question": "Is it worse to:\nhave your 'head in the clouds' OR\nbe 'in a rut" },
+  { "id": 4, "question": "Are you more impressed by:\nPrinciples OR\nEmotions" },
+  { "id": 5, "question": "Are you more drawn toward the:\nConvincing OR\nTouching" },
+  { "id": 6, "question": "Do you prefer to work:\nTo deadlines OR\nJust 'Whenever" },
+  { "id": 7, "question": "Do you tend to choose:\nRather carefully OR\nSomewhat impulsively" },
+  { "id": 8, "question": "Are parties or social gatherings do you:\nstay late, with increasing energy OR\nLeave early, with decreased energy" },
+  { "id": 9, "question": "Do you prefer the company of:\nSensible people OR\nImaginative people" },
+  { "id": 10, "question": "Are you more interested in:\nWhat is actual OR\nWhat is possible" },
+  { "id": 11, "question": "In judging others are you more swayed by:\nLaws than circumstances OR\nCircumstances than laws" },
+  { "id": 12, "question": "In approaching others is your inclination to be somewhjat:\nObjective OR\nPersonal" },
+  { "id": 13, "question": "Are you more:\nPunctual OR\nLeisurely" },
+  { "id": 14, "question": "Does it bother you move having things:\nIncomplete OR\nCompleted" },
+  { "id": 15, "question": "In your social groups do you:\nKeep up with the news OR\nGet behind on the news" },
+  { "id": 37, "question": "Are you more frequently:\nA practical sort of person OR\nA fanciful sort of person" },
+  { "id": 49, "question": "Are you more comfortable:\nAfter a decision OR\nBefore a decision" }
 ]

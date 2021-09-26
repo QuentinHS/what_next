@@ -1,7 +1,6 @@
 require 'json'
 require 'colorize'
 
-
 # Create custom error class to handle incorrect user input - user must input "a", "b" or "-"
 class InvalidInputError < StandardError
 end
@@ -15,7 +14,6 @@ end
 def get_answer
   answer = gets.chomp.downcase.strip
   raise InvalidInputError, "Please enter 'a', 'b' or '-'".red unless validate_answer(answer)
-
   answer
 end
 
@@ -24,7 +22,6 @@ def test
   data = JSON.load_file('test.json', symbolize_names: true)  
   data.each do |item|
     begin
-      # puts item[:question].to_s.blue
       pieces = item[:question].to_s.split("\n")
       puts pieces[0].blue
       puts "A) #{pieces[1]}".green
