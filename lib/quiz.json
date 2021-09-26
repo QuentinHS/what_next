@@ -24,6 +24,11 @@
   { "id": 23, "question": "Do you think that facts:\nSpeak for themselves OR\nIllustrated something larger" },
   { "id": 24, "question": "Are ambitious people:\nIrritating OR\nFascinating" },
   { "id": 25, "question": "Are you more often:\nCalm and collected OR\nPassionate and emotional" },
+  { "id": 26, "question": "Is it worse to be:\nUnjust OR\nMerciless" },
+  { "id": 27, "question": "Is it better for events to occur:\nThrough careful planning OR\nBy random chance" },
+  { "id": 28, "question": "Do you feel better:\nAfter buying something OR\nBefore you've made the choice to buy something" },
+  { "id": 29, "question": "When you meet new people do you:\nStart a conversation OR\nWait for someone else to start the conversation" },
+  { "id": 30, "question": "Things that are generally considered 'common sense' should be:\nRarely questioned OR\nOften questioned" },
   { "id": 37, "question": "Are you more frequently:\nA practical sort of person OR\nAn imaginative sort of person" },
   { "id": 49, "question": "Are you more comfortable:\nAfter a decision OR\nBefore a decision" }
 ]
