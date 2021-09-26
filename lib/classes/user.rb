@@ -1,19 +1,25 @@
+require_relative '../keirsey_temperament_sorter.rb'
+
 class User
-  def initialize(name, favorite_school_subject, enjoy_formal_education, enjoyed_skilled_work, desired_salary_range, enjoy_working_with_people )
+
+  attr_reader :name, :keirsey_type
+
+  def initialize(name)
     @name = name
-    @favorite_school_subject = favorite_school_subject
-    @enjoy_formal_education = enjoy_formal_education
-    @enjoyed_skilled_work = enjoyed_skilled_work
-    @desired_salary_range = desired_salary_range
-    @enjoy_working_with_people = enjoy_working_with_people 
-  
-    @myer_briggs_type = nil
-    # best approach might be to set to default value instead of initialised value, then set attribute one by one to the instance. For example:
-    @is_idealistic = nil
-    @is_creative = nil;
-    # So cut down number of instance variables. But maybe give more weight to certain variables in that case? So give several 'points' to attribute to something they consider very important. 
+    @keirsey_type = nil
   end
+
+  def generate_kersey_type(personality_profile)
+    personality_type = ""
+    values = personality_profile.values
+
+    personality_type += values[0] >= 5 ? "e" : "i"
+    personality_type += values[2] >= 10 ? "s" : "n"
+    personality_type += values[4] >= 10 ? "t" : "f"
+    personality_type += values[6] >= 10 ? "j" : "p"
+    
+    @keirsey_type = personality_type
+  end
+
 end
 
-
-# Maybe best to rank a person along several axes? So for a general personality type can use the myer briggs. But then use questions to gather whether they are numeric/creative, ambitious/laid-back, outdoorsy/indoorsy. So basically create a rough guide in binary terms. 

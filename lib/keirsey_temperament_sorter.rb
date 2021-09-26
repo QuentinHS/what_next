@@ -40,45 +40,47 @@ end
 #  'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a',
 #  'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'number70']
 
- prac_array = ["a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","b", "b","b", "b","a", "a","a", "a",]
-
-# Create hash map to represt personality aspects
-
-profile_answers = {
-  extraverted: 0,
-  introverted: 0,
-  sensing: 0,
-  intuition: 0,
-  thinking: 0,
-  feeling: 0,
-  judging: 0,
-  perceiving: 0
-}
+ prac_array = ["a","b","a", "b","a", "b","b", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","b", "b","b", "b","a", "a","a", "a",]
 
 
-# nums = prac_array.select.with_index{|_,i| (i) % 7 == 0}
-# nums2 = prac_array.select.with_index{|_,i| (i+6) % 7 == 0 || (i+5) % 7 == 0}
-# nums3 = prac_array.select.with_index{|_,i| (i+4) % 7 == 0 || (i+3) % 7 == 0}
-# nums4 = prac_array.select.with_index{|_,i| (i+2) % 7 == 0 || (i+1) % 7 == 0}
+def create_personality_profile(quiz_answers)
+  # Create hash map to represt personality aspects
+  profile_answers = {
+    extraverted: 0,
+    introverted: 0,
+    sensing: 0,
+    intuition: 0,
+    thinking: 0,
+    feeling: 0,
+    judging: 0,
+    perceiving: 0
+  }
 
-# Create personality profile based on answer key
-
-prac_array.each_with_index do |answer, i|
-  if i % 7 == 0 && answer == "a"
-    profile_answers[:extraverted] += 1
-  elsif i % 7 == 0 && answer == "b"
-    profile_answers[:introverted] += 1
-  elsif ((i+6) % 7 == 0 || (i+5) % 7 == 0) && answer == "a"
-    profile_answers[:sensing] += 1
-  elsif ((i+6) % 7 == 0 || (i+5) % 7 == 0) && answer == "b"
-    profile_answers[:intuition] += 1
-  elsif ((i+4) % 7 == 0 || (i+3) % 7 == 0) && answer == "a"
-    profile_answers[:thinking] += 1
-  elsif ((i+4) % 7 == 0 || (i+3) % 7 == 0) && answer == "b"
-    profile_answers[:feeling] += 1
-  elsif ((i+2) % 7 == 0 || (i+1) % 7 == 0) && answer == "a"
-    profile_answers[:judging] += 1
-  elsif ((i+2) % 7 == 0 || (i+1) % 7 == 0) && answer == "b"
-    profile_answers[:perceiving] += 1
+  # Create personality profile based on answer key
+  quiz_answers.each_with_index do |answer, i|
+    if i % 7 == 0 && answer == "a"
+      profile_answers[:extraverted] += 1
+    elsif i % 7 == 0 && answer == "b"
+      profile_answers[:introverted] += 1
+    elsif ((i+6) % 7 == 0 || (i+5) % 7 == 0) && answer == "a"
+      profile_answers[:sensing] += 1
+    elsif ((i+6) % 7 == 0 || (i+5) % 7 == 0) && answer == "b"
+      profile_answers[:intuition] += 1
+    elsif ((i+4) % 7 == 0 || (i+3) % 7 == 0) && answer == "a"
+      profile_answers[:thinking] += 1
+    elsif ((i+4) % 7 == 0 || (i+3) % 7 == 0) && answer == "b"
+      profile_answers[:feeling] += 1
+    elsif ((i+2) % 7 == 0 || (i+1) % 7 == 0) && answer == "a"
+      profile_answers[:judging] += 1
+    elsif ((i+2) % 7 == 0 || (i+1) % 7 == 0) && answer == "b"
+      profile_answers[:perceiving] += 1
+    end
   end
+
+  profile_answers
 end
+
+profile = create_personality_profile(prac_array)
+
+
+puts kersey_type(profile)
