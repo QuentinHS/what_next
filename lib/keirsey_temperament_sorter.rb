@@ -38,7 +38,7 @@ end
 
 prac_array = ['number1', 'number2', 'number3', 'number4', 'number5', 'number6', 'number7', 'number8', 'number9', 'number10', 'number11', 'number12', 'number13', 'number14', 'number15', 'number16', 'number17', 'a', 'a', 'a', 'a', 'a', 'a', 'a',
  'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a',
- 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a']
+ 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'number70']
 
 profile_answers = {
   extraverted: 0,
@@ -51,11 +51,11 @@ profile_answers = {
   perceiving: 0
 }
 
-# nums = prac_array.select.with_index{|_,i| (i) % 7 == 0}
-
+nums = prac_array.select.with_index{|_,i| (i) % 7 == 0}
 nums2 = prac_array.select.with_index{|_,i| (i+6) % 7 == 0 || (i+5) % 7 == 0}
-nums2 = prac_array.select.with_index{|_,i| (i+4) % 7 == 0 || (i+3) % 7 == 0}
-# p nums
-p nums2
+nums3 = prac_array.select.with_index{|_,i| (i+4) % 7 == 0 || (i+3) % 7 == 0}
+nums4 = prac_array.select.with_index{|_,i| (i+2) % 7 == 0 || (i+1) % 7 == 0}
+
+p nums4
 
 # nums.each_with_index do |_,i|
