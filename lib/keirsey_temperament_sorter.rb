@@ -11,7 +11,7 @@ def validate_answer(answer)
   answer =~ /[abAB-]{1}/
 end
 
-# Get valid answer for test questions, otherwise raise error
+# Get valid answer for test questions, otherwise raise error (colorized in red)
 def get_answer
   answer = gets.chomp.downcase.strip
   raise InvalidInputError, "Please enter 'a', 'b' or '-'".red unless validate_answer(answer)
@@ -24,7 +24,11 @@ def test
   data = JSON.load_file('test.json', symbolize_names: true)  
   data.each do |item|
     begin
-      puts item[:question].to_s.blue
+      # puts item[:question].to_s.blue
+      pieces = item[:question].to_s.split("\n")
+      puts pieces[0].blue
+      puts "A) #{pieces[1]}".green
+      puts "B) #{pieces[2]}".yellow
       answer = get_answer
       answers << answer
     rescue => e 
