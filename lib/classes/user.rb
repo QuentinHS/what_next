@@ -14,3 +14,6 @@ class User
     # So cut down number of instance variables. But maybe give more weight to certain variables in that case? So give several 'points' to attribute to something they consider very important. 
   end
 end
+
+
+# Maybe best to rank a person along several axes? So for a general personality type can use the myer briggs. But then use questions to gather whether they are numeric/creative, ambitious/laid-back, outdoorsy/indoorsy. So basically create a rough guide in binary terms. 
