@@ -36,5 +36,26 @@ def test
   answers
 end
 
-stuff = test
-p stuff
+prac_array = ['number1', 'number2', 'number3', 'number4', 'number5', 'number6', 'number7', 'number8', 'number9', 'number10', 'number11', 'number12', 'number13', 'number14', 'number15', 'number16', 'number17', 'a', 'a', 'a', 'a', 'a', 'a', 'a',
+ 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a',
+ 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a']
+
+profile_answers = {
+  extraverted: 0,
+  introverted: 0,
+  sensing: 0,
+  intuition: 0,
+  thinking: 0,
+  feeling: 0,
+  judging: 0,
+  perceiving: 0
+}
+
+# nums = prac_array.select.with_index{|_,i| (i) % 7 == 0}
+
+nums2 = prac_array.select.with_index{|_,i| (i+6) % 7 == 0 || (i+5) % 7 == 0}
+nums2 = prac_array.select.with_index{|_,i| (i+4) % 7 == 0 || (i+3) % 7 == 0}
+# p nums
+p nums2
+
+# nums.each_with_index do |_,i|
