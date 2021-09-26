@@ -1,15 +1,14 @@
-require_relative '../keirsey_temperament_sorter.rb'
+require_relative "../personality_test"
 
 class User
-
-  attr_reader :name, :keirsey_type
+  attr_reader :name, :personality_type
 
   def initialize(name)
     @name = name
-    @keirsey_type = nil
+    @personality_type = nil
   end
 
-  def generate_kersey_type(personality_profile)
+  def generate_personality_type(personality_profile)
     personality_type = ""
     values = personality_profile.values
 
@@ -17,9 +16,11 @@ class User
     personality_type += values[2] >= 10 ? "s" : "n"
     personality_type += values[4] >= 10 ? "t" : "f"
     personality_type += values[6] >= 10 ? "j" : "p"
-    
-    @keirsey_type = personality_type
+
+    @personality_type = personality_type
   end
 
 end
+
+user = User.new('tom')
 

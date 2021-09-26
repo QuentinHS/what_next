@@ -17,7 +17,7 @@ def get_answer
   answer
 end
 
-def test
+def quiz
   answers = []
   data = JSON.load_file('test.json', symbolize_names: true)  
   data.each do |item|
@@ -83,4 +83,3 @@ end
 profile = create_personality_profile(prac_array)
 
 
-puts kersey_type(profile)

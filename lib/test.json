@@ -14,6 +14,16 @@
   { "id": 13, "question": "Are you more:\nPunctual OR\nCasual" },
   { "id": 14, "question": "Does it bother you move having things:\nIncomplete OR\nCompleted" },
   { "id": 15, "question": "In your social groups do you:\nKeep up with the news OR\nGet behind on the news" },
+  { "id": 16, "question": "In doing ordinary things are you more likely to:\nDo it the usual way OR\nDo it your own way"},
+  { "id": 17, "question": "Writers should:\nExpress themselves in plain language OR\nExpress themselves with symbolism and analogies" },
+  { "id": 18, "question": "Which appeals to you more:\nConsistency of thought OR\nHarmonious human relationships" },
+  { "id": 19, "question": "Are you more comfortable making:\nLogical judgments OR\nMoral or ethical judgments" },
+  { "id": 20, "question": "Do you want things:\nSettled and decided OR\nUnsettled and undecided" },
+  { "id": 21, "question": "Are you more:\nSerious and determined OR\nEasy-going" },
+  { "id": 22, "question": "When making a call do you:\nRehearse what you're going to say OR\nImprovise" },
+  { "id": 23, "question": "Do you think that facts:\nSpeak for themselves OR\nIllustrated something larger" },
+  { "id": 24, "question": "Are ambitious people:\nIrritating OR\nFascinating" },
+  { "id": 25, "question": "Are you more often:\nCalm and collected OR\nPassionate and emotional" },
   { "id": 37, "question": "Are you more frequently:\nA practical sort of person OR\nAn imaginative sort of person" },
   { "id": 49, "question": "Are you more comfortable:\nAfter a decision OR\nBefore a decision" }
 ]
