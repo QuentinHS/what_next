@@ -14,7 +14,7 @@
   { "id": 13, "question": "Are you more:\nPunctual OR\nCasual" },
   { "id": 14, "question": "Does it bother you move having things:\nIncomplete OR\nCompleted" },
   { "id": 15, "question": "In your social groups do you:\nKeep up with the news OR\nGet behind on the news" },
-  { "id": 16, "question": "In doing ordinary things are you more likely to:\nDo it the usual way OR\nDo it your own way"},
+  { "id": 16, "question": "In doing ordinary things are you more likely to:\nDo it the usual way OR\nDo it your own way" },
   { "id": 17, "question": "Writers should:\nExpress themselves in plain language OR\nExpress themselves with symbolism and analogies" },
   { "id": 18, "question": "Which appeals to you more:\nConsistency of thought OR\nHarmonious human relationships" },
   { "id": 19, "question": "Are you more comfortable making:\nLogical judgments OR\nMoral or ethical judgments" },
@@ -29,6 +29,12 @@
   { "id": 28, "question": "Do you feel better:\nAfter buying something OR\nBefore you've made the choice to buy something" },
   { "id": 29, "question": "When you meet new people do you:\nStart a conversation OR\nWait for someone else to start the conversation" },
   { "id": 30, "question": "Things that are generally considered 'common sense' should be:\nRarely questioned OR\nOften questioned" },
+  { "id": 31, "question": "Young people generally:\nDon't make themselves useful enough OR\nEnjoy being young enough" },
+  { "id": 32, "question": "When making a decision do you feel more comfortable guided by:\nStandards OR\nFeelings" },
+  { "id": 33, "question": "Would you consider yourself more:\nFirm OR\nGentle" },
+  { "id": 34, "question": "What sort of person do you admire more:\nSomeone organised who plans methodically OR\nSomeone who improvises and adapts to new situations" },
+  { "id": 35, "question": "In general, do you prefer when events have:\nDefinite time-frames OR\nOpen-ended time-frames" },
+  { "id": 36, "question": "Does meeting new people:\nGive you energy OR\nLeave you feeling drained" },
   { "id": 37, "question": "Are you more frequently:\nA practical sort of person OR\nAn imaginative sort of person" },
   { "id": 49, "question": "Are you more comfortable:\nAfter a decision OR\nBefore a decision" }
 ]
