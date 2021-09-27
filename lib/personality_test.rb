@@ -11,20 +11,26 @@ end
 # Get valid answer for test questions, otherwise raise error (colorized in red)
 def get_answer
   answer = gets.chomp.downcase.strip
-  raise InvalidInputError, "Please enter 'a', 'b' or '-'".red unless validate_answer(answer)
+  raise InvalidInputError, "Please enter 'a' or 'b' to answer, '-h' for help, or '-q' to quit".red unless validate_answer(answer)
   answer
 end
 
 def quiz
   answers = []
-  data = JSON.load_file('test.json', symbolize_names: true)  
+  data = JSON.load_file('quiz.json', symbolize_names: true)  
   data.each do |item|
     begin
       pieces = item[:question].to_s.split("\n")
-      puts pieces[0].blue
+      puts "#{item[:id].to_s.cyan}: #{pieces[0].blue}"
       puts "A) #{pieces[1]}".green
       puts "B) #{pieces[2]}".yellow
       answer = get_answer
+      case answer
+      when "-q" || "--quit"
+        break
+      when "-h" || "--help"
+        puts "This is a help function."
+      end
       answers << answer
     rescue => e 
       puts e.message
@@ -34,12 +40,7 @@ def quiz
   answers
 end
 
-# prac_array = ['number1', 'number2', 'number3', 'number4', 'number5', 'number6', 'number7', 'number8', 'number9', 'number10', 'number11', 'number12', 'number13', 'number14', 'number15', 'number16', 'number17', 'a', 'a', 'a', 'a', 'b', 'a', 'a',
-#  'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a',
-#  'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'number70']
-
- prac_array = ["a","b","a", "b","a", "b","b", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","b", "b","b", "b","a", "a","a", "a",]
-
+data = quiz
 
 def create_personality_profile(quiz_answers)
   # Create hash map to represt personality aspects
@@ -78,6 +79,8 @@ def create_personality_profile(quiz_answers)
   profile_answers
 end
 
-profile = create_personality_profile(prac_array)
+profile = create_personality_profile(data)
+
+p profile
 
 
