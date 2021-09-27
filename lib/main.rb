@@ -1,16 +1,20 @@
 require "tty-prompt"
 require 'colorize'
-require_relative "./classes/user.rb"
+require_relative "./classes/user"
+require_relative './classes/UserInterface'
+require_relative './personality_test'
 require_relative './errors/invalid_input_error'
+
 
 # Present welcome message to the user 
 
 def intro
   puts "Welcome to 'What Next?', a terminal-based application to help you decide on your future career path!".green 
+  prompt = TTY::Prompt.new
 end
 
 intro
-prompt = TTY::Prompt.new
+
 
 name = prompt.ask("Can we start with your name? You can just press 'enter' to remain anonymous.".magenta, default: "anonymous").strip
 user = User.new(name)

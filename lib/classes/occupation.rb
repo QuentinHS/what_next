@@ -1,16 +1,16 @@
+# Data from https://joboutlook.gov.au/occupations/
+
 class Occupation 
-  def initialize(job_name, salary_range, growing, job_size, job_competitiveness, personality_suitability)
+  def initialize(job_name, salary_range, potential_growth, job_size, personality_suitability)
     @job_name = job_name
     @salary_range = salary_range
-    @growing = growing
+    @potential_growth = potential_growth
     @job_size = job_size
-    @job_competitiveness = job_competitiveness
     @personality_suitability = personality_suitability
   end
 
   def generate_career_suggestion
   end
-
 
   # Compare two occupations on any of the instance attributes 
 
@@ -20,4 +20,5 @@ class Occupation
   end
 
 end
+
 
