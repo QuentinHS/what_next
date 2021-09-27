@@ -10,15 +10,15 @@ require_relative './errors/invalid_input_error'
 
 def intro
   puts "Welcome to 'What Next?', a terminal-based application to help you decide on your future career path!".green 
-  prompt = TTY::Prompt.new
+ 
 end
 
 intro
 
-
+prompt = TTY::Prompt.new
 name = prompt.ask("Can we start with your name? You can just press 'enter' to remain anonymous.".magenta, default: "anonymous").strip
 user = User.new(name)
-puts "Hi #{user.name}!  At any time you can also type '-h' or '--help' at the command line for instructions on what you can do.".cyan
+puts "Hi #{user.name}! If you're feeling a bit lost, you're welcome to take a short quiz that will hopefully give you a few helpful suggestions. If you already know your personality type (say you've done a Myer-Briggs or Keirsey-style test before), you can also search for jobs that might suit your personality type. Or you can just compare two career options directly.".cyan
 
 answer = prompt.select("What would you like to do next?".yellow, %w(Quiz Compare Search Help About))
 
