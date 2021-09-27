@@ -20,7 +20,10 @@ class User
     @personality_type = personality_type
   end
 
+  def to_s
+    puts "Hi, my name is #{self.name}"
+  end
 end
 
-user = User.new('tom')
+# user = User.new('tom')
 

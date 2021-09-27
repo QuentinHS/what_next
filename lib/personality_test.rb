@@ -1,9 +1,7 @@
 require 'json'
 require 'colorize'
+require_relative './errors/invalid_input_error'
 
-# Create custom error class to handle incorrect user input - user must input "a", "b" or "-"
-class InvalidInputError < StandardError
-end
 
 # Valide that answer is "a"/"b"/"-"
 def validate_answer(answer)
