@@ -6,3 +6,5 @@ jobs that might suit their personality. ie, input 'intj' and it will list jobs i
 If they don't know their type, they can take the quiz to find out their personality type. They go through the entire 70 question quiz, get assigned a personality type, and then they get given a suggestion based on weighting of factors. 
 
 Finally, they can directly compare two jobs. It will compare salary, growth etc between the jobs.
+
+Have a look at gem prompts maybe for a nicer user interface to pick between options?
