@@ -52,12 +52,4 @@ end
 
 # occupations[0].compare_occupation(occupations[3])
 
-  # // { "id": 2, "name": "nurse", "salary_range": "medium", "potential_growth": "high", "job_size": "large", "personality_suitability": ["ISFJ"] },
-  # // { "id": 3, "name": "primary_teacher", "salary_range": "medium", "potential_growth": "high", "job_size": "large", "personality_suitability": ["ENFJ"] },
-  # // { "id": 4, "name": "IT_Professional", "salary_range": "high", "potential_growth": "high", "job_size": "large", "personality_suitability": ["ISTJ", "INTJ"] },
-  # // { "id": 5, "name": "doctor", "salary_range": "high", "potential_growth": "high", "job_size": "large", "personality_suitability": ["ESTJ, INTP"] },
-  # // { "id": 6, "name": "dentist", "salary_range": "high", "potential_growth": "high", "job_size": "large", "personality_suitability": ["ISTJ"] },
-  # // { "id": 7, "name": "accountant", "salary_range": "medium", "potential_growth": "high", "job_size": "large", "personality_suitability": ["ESTJ"] },
-  # // { "id": 8, "name": "lawyer", "salary_range": "high", "potential_growth": "high", "job_size": "large", "personality_suitability": ["ISTJ", "INTJ"] },
-  # // { "id": 9, "name": "banker", "salary_range": "high", "potential_growth": "high", "job_size": "medium", "personality_suitability": ["ENTJ"] },
-  # // { "id": 10, "name": "psychologist", "salary_range": "medium", "potential_growth": "high", "job_size": "medium", "personality_suitability": ["INFJ"] }
+ 

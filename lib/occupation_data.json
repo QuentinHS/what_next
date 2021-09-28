@@ -1,14 +1,14 @@
 [
-  { "id": 1, "name": "teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
-  { "id": 2, "name": "secondary_teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
-  { "id": 3, "name": "secondary_teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
-  { "id": 4, "name": "secondary_teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
-  { "id": 5, "name": "secondary_teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
-  { "id": 6, "name": "secondary_teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
-  { "id": 7, "name": "secondary_teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
-  { "id": 8, "name": "secondary_teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
-  { "id": 9, "name": "secondary_teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
-  { "id": 10, "name": "secondary_teacher", "salary_min": 50000, "salary_max": 90000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] }
+  { "id": 1, "name": "teacher", "salary_min": 51000, "salary_average": 71000, "growing": true, "job_size": 280000, "personality_suitability": ["INFP", "ENFJ"] },
+  { "id": 2, "name": "nurse", "salary_min": 45000, "salary_average": 76000, "growing": true, "job_size": 365000, "personality_suitability": ["ISFJ"] },
+  { "id": 3, "name": "information_techology_professional", "salary_min": 53000, "salary_average": 106000, "growing": true, "job_size": 633000, "personality_suitability": ["ISTJ", "INTJ"] },
+  { "id": 4, "name": "doctor", "salary_min": 60000, "salary_average": 120000, "growing": true, "job_size": 70200, "personality_suitability": ["ESTJ", "INTP"] },
+  { "id": 5, "name": "dentist", "salary_min": 50000, "salary_average": 138000, "growing": true, "job_size": 18061, "personality_suitability": ["ISTJ"] },
+  { "id": 6, "name": "accountant", "salary_min": 45000, "salary_average": 86000, "growing": true, "job_size": 205700, "personality_suitability": ["ESTJ"] },
+  { "id": 7, "name": "solicitor", "salary_min": 60000, "salary_average": 85000, "growing": true, "job_size": 94500, "personality_suitability": ["ISTJ", "INTJ"] },
+  { "id": 8, "name": "banking_professional", "salary_min": 65000, "salary_average": 93000, "growing": true, "job_size": 33600, "personality_suitability": ["ENTJ"] },
+  { "id": 9, "name": "barrister", "salary_min": 70000, "salary_average": 98800, "growing": true, "job_size": 10000, "personality_suitability": ["ESTJ"] },
+  { "id": 10, "name": "psychologist", "salary_min": 55000, "salary_average": 92000, "growing": true, "job_size": 5200, "personality_suitability": ["INFJ"] }
 ]
 
 

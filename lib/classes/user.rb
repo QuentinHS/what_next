@@ -5,8 +5,11 @@ class User
 
   def initialize(name)
     @name = name
+    @personality_profile = PersonalityProfile.new
     @personality_type = nil
   end
+
+  # Use PersonalityProfile class to generate personality type for the user
 
   def generate_personality_type(personality_profile)
     personality_type = ""
