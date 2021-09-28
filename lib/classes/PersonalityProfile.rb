@@ -7,7 +7,9 @@ class PersonalityProfile
   attr_accessor :quiz_answers, :profile_map
 
   def initialize
+    # Create instance variable to store quiz answers
     @quiz_answers = []
+    # Create instance variable to store personality profile and will be used to generate personality type by user
     @profile_map = {
     extraverted: 0,
     introverted: 0,
@@ -23,19 +25,21 @@ class PersonalityProfile
 
   # Validate that answer is "a" OR "b" (will convert uppercase to lowercase)
   def validate_answer(answer)
-    answer =~ /[abAB]{1}/   
+    answer =~ /[abAB]{1}|-q|--quit/   
   end
 
 
   # Get valid answer for test questions, otherwise raise error (colorized in red)
   def get_answer
     answer = gets.chomp.downcase.strip
-    raise InvalidInputError, "Please enter 'a' or 'b' to answer, '-h' or '--help' for help, or '-q' or '--quit' to exit".red unless self.validate_answer(answer)
+    raise InvalidInputError, "Please enter 'a' or 'b' to answer, or '-q' or '--quit' to exit".red unless self.validate_answer(answer)
     answer
   end
 
+
+  # Commence personality quiz which will generate array of answers stored in state
   def quiz(file)
-  # reset instance variable
+  # reset instance variable to avoid duplicating answers
   @quiz_answers = []
 
   quiz_answers = []
@@ -49,16 +53,12 @@ class PersonalityProfile
       answer = get_answer
 
       case answer
-      when "-q"
+      when "-q"  
         break
-      when "-h"
-        puts "This is a help function."
-      when "a"
-        quiz_answers << answer
-      when "b"
-        quiz_answers << answer
+      when "--quit"
+        break
       end
-      
+      quiz_answers << answer
     rescue => e 
       puts e.message
       retry
@@ -67,10 +67,10 @@ class PersonalityProfile
   @quiz_answers.concat(quiz_answers)
   end 
 
- 
 
+  # Use quiz answers to generate personality map which is stored in state
   def generate_personality_map
-  # Reset personality profile map
+  # Reset personality profile map in case user wants to take test multiple times
   @profile_map = {
     extraverted: 0,
     introverted: 0,
