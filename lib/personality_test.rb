@@ -11,7 +11,7 @@ end
 # Get valid answer for test questions, otherwise raise error (colorized in red)
 def get_answer
   answer = gets.chomp.downcase.strip
-  raise InvalidInputError, "Please enter 'a' or 'b' to answer, '-h' for help, or '-q' to quit".red unless validate_answer(answer)
+  raise InvalidInputError, "Please enter 'a' or 'b' to answer, '-h' or '--help' for help, or '-q' or '--quit' to exit".red unless validate_answer(answer)
   answer
 end
 
@@ -43,7 +43,7 @@ end
 data = quiz
 
 def create_personality_profile(quiz_answers)
-  # Create hash map to represt personality aspects
+  # Create hash map to represent personality aspects
   profile_answers = {
     extraverted: 0,
     introverted: 0,
@@ -84,3 +84,14 @@ profile = create_personality_profile(data)
 p profile
 
 
+
+
+
+
+
+
+
+
+
+
+ 
