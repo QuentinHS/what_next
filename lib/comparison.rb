@@ -51,14 +51,26 @@ end
     occupations.find_index { |occupation| occupation.job_name == occupation_name_input }
   end
 
-  # Use retrieved index to find occupations for comparison
-  def compare_occupation_salary(occupation_data, occupation_one, occupation_two)
-    # Use find occupation method to get index of occupation from user input
+  def retrieve_data(occupation_data, occupation_one, occupation_two)
     index_one = find_occupation(occupation_data, occupation_one)
     index_two = find_occupation(occupation_data, occupation_two)
     # Retrieve jobs from instance array using found indexes
     occupation_one_instance = occupation_data[index_one]
     occupation_two_instance = occupation_data[index_two]
+    return {
+      index_one: index_one,
+      index_two: index_two,
+      occupation_one_instance: occupation_one_instance,
+      occupation_two_instance: occupation_two_instance
+    }
+  end 
+
+  # Use retrieved index to find occupations for comparison
+  def compare_occupation_salary(jobs)
+    # Use data retrieval function to get necessary data for comparison
+    data = retrieve_data(jobs[:occupation_list], jobs[:first_occupation], jobs[:second_occupation])
+    # Destructure data from data hash map
+    index_one, index_two, occupation_one_instance, occupation_two_instance = data.values_at(:index_one, :index_two, :occupation_one_instance, :occupation_two_instance)
 
     # Display first comparison message to user for minimum slaries
     puts "#{occupation_one_instance.job_name.capitalize}s generally have a #{occupation_one_instance.salary_min == occupation_two_instance.salary_min ? "similar" : occupation_one_instance.salary_min > occupation_two_instance.salary_min ? "higher" : "lower"} minimum starting salary #{ occupation_one_instance.salary_min == occupation_two_instance.salary_min ? 'to': 'than'} #{occupation_two_instance.job_name}s.".blue
@@ -69,13 +81,12 @@ end
   end
 
   # Use retrieved index to find occupations for comparison
-  def compare_occupation_growth(occupation_data, occupation_one, occupation_two)
-    # Use find occupation method to get index of occupation from user input
-    index_one = find_occupation(occupation_data, occupation_one)
-    index_two = find_occupation(occupation_data, occupation_two)
-    # Retrieve jobs from instance array using found indexes
-    occupation_one_instance = occupation_data[index_one]
-    occupation_two_instance = occupation_data[index_two]
+  def compare_occupation_growth(jobs)
+    # Use data retrieval function to get necessary data for comparison
+    data = retrieve_data(jobs[:occupation_list], jobs[:first_occupation], jobs[:second_occupation])
+    # Destructure data from data hash map
+    index_one, index_two, occupation_one_instance, occupation_two_instance = data.values_at(:index_one, :index_two, :occupation_one_instance, :occupation_two_instance)
+
 
     # Display first comparison message to user for minimum slaries
     puts "#{occupation_one_instance.job_name.capitalize}s are currently experiencing #{!occupation_one_instance.growing ? 'negative' : occupation_one_instance.growing && occupation_one_instance.long_term_growth == "strong" ? 'strong' : 'low'} growth in their profession, which will likely continue for the foreseeable future.".blue

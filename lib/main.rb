@@ -51,9 +51,9 @@ when "Compare"
   puts answer
   case answer
   when "Salary"
-    compare_occupation_salary(jobs[:occupation_list], jobs[:first_occupation], jobs[:second_occupation])
+    compare_occupation_salary(jobs)
   when "Growth"
-        compare_occupation_growth(jobs[:occupation_list], jobs[:first_occupation], jobs[:second_occupation])
+    compare_occupation_growth(jobs)
   when "Job Size"
     puts "job size"
   end
