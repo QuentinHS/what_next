@@ -25,7 +25,7 @@ class Occupation
 
   # Compare two occupations based on instance attributes
 
-  def compare_occupation(compared_occupation)
+  def compare_occupation_salary(compared_occupation)
     puts "#{self.job_name} generally has a #{self.salary_min == compared_occupation.salary_min ? "similar" : self.salary_min > compared_occupation.salary_min ? "higher" : "lower "} minimum salary than #{compared_occupation.job_name}"
   end
 

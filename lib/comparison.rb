@@ -46,3 +46,18 @@ def get_occupation(occupation_data)
     second_occupation}
 end
  
+  def find_occupation(occupations, occupation_name_input)
+    occupations.find_index { |occupation| occupation.job_name == occupation_name_input }
+  end
+
+  def compare_occupation_salary(occupation_data, occupation_one, occupation_two)
+
+    index_one = find_occupation(occupation_data, occupation_one)
+    index_two = find_occupation(occupation_data, occupation_two)
+    occupation_one_instance = occupation_data[index_one]
+    occupation_two_instance = occupation_data[index_two]
+
+
+    puts "#{occupation_one_instance.job_name} generally has a #{occupation_one_instance.salary_min == occupation_two_instance.salary_min ? "similar" : occupation_one_instance.salary_min > occupation_two_instance.salary_min ? "higher" : "lower "} minimum salary than #{occupation_two_instance.job_name}"
+  end
+

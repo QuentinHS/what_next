@@ -42,7 +42,16 @@ when "Compare"
     retry
   end
   
-  answer = prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary, Growth), 'Job Size',)
+  answer = prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size',)
+  puts answer
+  case answer
+  when "Salary"
+    compare_occupation_salary(jobs[:occupation_list], jobs[:first_occupation], jobs[:second_occupation])
+  when "Growth"
+    puts "growth"
+  when "Job Size"
+    puts "job size"
+  end
   
 when "Search"
   puts "placeholder3"
