@@ -17,11 +17,16 @@ end
 
 intro
 
+# Create new prompt
 prompt = TTY::Prompt.new
-name = prompt.ask("Can we start with your name? You can just press 'enter' to remain anonymous.".magenta, default: "anonymous").strip
+# Ask user for name input
+name = prompt.ask("Can we start with your name? You can just press 'enter' to remain anonymous.".magenta, default: "anonymous").strip.capitalize
+# Create new user object with name parameter 
 user = User.new(name)
+
 puts "Hi #{user.name}! If you're feeling a bit lost, you're welcome to take a short quiz that will hopefully give you a few helpful suggestions. If you already know your personality type (say you've done a Myer-Briggs or Keirsey-style test before), you can also search for jobs that might suit your personality type. Or you can just compare two career options directly.".cyan
 
+# Ask user which option they want to select
 answer = prompt.select("What would you like to do next?".yellow, %w(Quiz Compare Search Help About))
 
 case answer
@@ -42,13 +47,13 @@ when "Compare"
     retry
   end
   
-  answer = prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size',)
+  answer = prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation')
   puts answer
   case answer
   when "Salary"
     compare_occupation_salary(jobs[:occupation_list], jobs[:first_occupation], jobs[:second_occupation])
   when "Growth"
-    puts "growth"
+        compare_occupation_growth(jobs[:occupation_list], jobs[:first_occupation], jobs[:second_occupation])
   when "Job Size"
     puts "job size"
   end
