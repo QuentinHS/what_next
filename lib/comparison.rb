@@ -95,3 +95,35 @@ end
 
   end
 
+  # create function to compare occupations by number of members
+def compare_occupation_job_size(jobs)
+      # Use data retrieval function to get necessary data for comparison
+    data = retrieve_data(jobs[:occupation_list], jobs[:first_occupation], jobs[:second_occupation])
+    # Destructure data from data hash map
+    index_one, index_two, occupation_one_instance, occupation_two_instance = data.values_at(:index_one, :index_two, :occupation_one_instance, :occupation_two_instance)
+
+    occupation_one_size = occupation_one_instance.job_size > 100000 ? 'very large' :
+    occupation_one_instance.job_size > 50000 ? 'large' : occupation_one_instance.job_size > 20000 ? 'medium' :  occupation_one_instance.job_size > 5000 ? 'small' : 'very small'
+
+    occupation_two_size = occupation_two_instance.job_size > 100000 ? 'very large' :
+    occupation_two_instance.job_size > 50000 ? 'large' : occupation_two_instance.job_size > 20000 ? 'medium' : occupation_two_instance.job_size > 5000 ? 'small' : 'very small'
+
+    # Display first comparison message to user for minimum salaries
+    puts "#{occupation_one_instance.job_name.capitalize}s are part of a #{occupation_one_instance.job_size == occupation_two_instance.job_size ? 'similarly-sized' : occupation_one_instance.job_size > occupation_two_instance.job_size ? 'larger' : 'smaller'} profession than #{occupation_two_instance.job_name}s.".blue
+    
+    puts "As a whole, #{occupation_one_instance.job_name}s are members of a #{occupation_one_size} profession, while #{occupation_two_instance.job_name}s are part of a #{occupation_two_size} profession.".cyan
+    
+   
+end
+
+# Create function to compare jobs by their vulnerability to automation
+def compare_occupation_automation_vulnerability(jobs)
+      # Use data retrieval function to get necessary data for comparison
+    data = retrieve_data(jobs[:occupation_list], jobs[:first_occupation], jobs[:second_occupation])
+    # Destructure data from data hash map
+    index_one, index_two, occupation_one_instance, occupation_two_instance = data.values_at(:index_one, :index_two, :occupation_one_instance, :occupation_two_instance)
+
+    puts "#{occupation_one_instance.job_name.capitalize}s are presently #{!occupation_one_instance.vulnerable_to_automation ? 'not ' : ''}considered to be vulnerable to increasing automation over the next decade.".blue 
+    puts "Government data suggests that #{occupation_two_instance.job_name}s, by comparison, are #{!occupation_two_instance.vulnerable_to_automation ? 'not ' : ''}vulnerable to their profession being increasingly automated in the foreseeable future. ".cyan 
+
+end

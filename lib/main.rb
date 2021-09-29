@@ -55,7 +55,9 @@ when "Compare"
   when "Growth"
     compare_occupation_growth(jobs)
   when "Job Size"
-    puts "job size"
+    compare_occupation_job_size(jobs)
+  when 'Vulnerability to Automation'
+    compare_occupation_automation_vulnerability(jobs)
   end
   
 when "Search"
