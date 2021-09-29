@@ -28,5 +28,6 @@ class User
   end
 end
 
-# user = User.new('tom')
+user = User.new('tom')
+
 

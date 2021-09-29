@@ -38,7 +38,7 @@ class PersonalityProfile
 
 
   # Commence personality quiz which will generate array of answers stored in state
-  def quiz(file)
+  def quiz(file='../quiz.json')
   # reset instance variable to avoid duplicating answers
   @quiz_answers = []
 
@@ -111,7 +111,7 @@ class PersonalityProfile
 end
 
 person = PersonalityProfile.new
-person.quiz('../quiz.json')
+person.quiz
 person.generate_personality_map
 p person.profile_map
 p person.quiz_answers
