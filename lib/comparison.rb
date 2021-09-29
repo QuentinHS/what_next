@@ -78,9 +78,9 @@ end
     occupation_two_instance = occupation_data[index_two]
 
     # Display first comparison message to user for minimum slaries
-    puts "#{occupation_one_instance.job_name.capitalize}s are currently experiencing #{!occupation_one_instance.growing ? 'negative' : occupation_one_instance.growing && occupation_one_instance.long_term_growth == "strong" ? 'strong' : 'low'} growth in their profession.".blue
+    puts "#{occupation_one_instance.job_name.capitalize}s are currently experiencing #{!occupation_one_instance.growing ? 'negative' : occupation_one_instance.growing && occupation_one_instance.long_term_growth == "strong" ? 'strong' : 'low'} growth in their profession, which will likely continue for the foreseeable future.".blue
 
-    puts "#{occupation_one_instance.job_name.capitalize}s are currently experiencing #{!occupation_one_instance.growing ? 'negative' : occupation_one_instance.growing && occupation_one_instance.long_term_growth == "strong" ? 'strong' : 'low'} growth in their profession.".cyan
+    puts "By comparison, #{occupation_two_instance.job_name}s are #{occupation_one_instance.long_term_growth == occupation_two_instance.long_term_growth ? 'also ' : ''}experiencing #{!occupation_two_instance.growing ? 'negative' : occupation_two_instance.growing && occupation_two_instance.long_term_growth == "strong" ? 'strong' : 'low'} future growth for their profession.".cyan
 
   end
 
