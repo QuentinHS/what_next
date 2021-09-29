@@ -1,7 +1,12 @@
 require_relative "../personality_test"
+require_relative "PersonalityProfile"
+require 'json'
+require 'colorize'
+require_relative '../errors/invalid_input_error'
 
 class User
   attr_reader :name, :personality_type
+  attr_accessor :personality_profile
 
   def initialize(name)
     @name = name
@@ -28,5 +33,8 @@ class User
   end
 end
 
-# user = User.new('tom')
+user = User.new('tom')
+
+user.personality_profile.quiz('../quiz.json')
+
 

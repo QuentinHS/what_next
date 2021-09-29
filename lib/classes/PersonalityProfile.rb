@@ -1,6 +1,7 @@
 require 'json'
 require 'colorize'
 require_relative '../errors/invalid_input_error'
+require_relative 'user'
 
 class PersonalityProfile
 
@@ -38,7 +39,7 @@ class PersonalityProfile
 
 
   # Commence personality quiz which will generate array of answers stored in state
-  def quiz(file)
+  def quiz(file='../quiz.json')
   # reset instance variable to avoid duplicating answers
   @quiz_answers = []
 
