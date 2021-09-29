@@ -1,10 +1,3 @@
-# Data from https://joboutlook.gov.au/occupations/
-require "json"
-
-data = JSON.load_file('../occupation_data.json', symbolize_names: true)  
-occupations = []
-
-
 class Occupation 
 
   attr_reader :job_name, :salary_min, :salary_average, :growing, :job_size, :personality_suitability
@@ -39,12 +32,6 @@ class Occupation
 end
 
 
-data.each do |item|
-  occupation = Occupation.new(item[:name], item[:salary_min], item[:salary_average], item[:growing], item[:job_size], item[:personality_suitability])
- 
-  occupations << occupation
-
-end
 
 
 
@@ -57,6 +44,6 @@ end
 #   puts item.personality_suitability
 # end
 
-occupations[3].compare_occupation(occupations[6])
+
 
  

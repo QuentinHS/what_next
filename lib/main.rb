@@ -1,16 +1,15 @@
 require "tty-prompt"
 require 'colorize'
-require_relative "./classes/user"
-require_relative './classes/UserInterface'
-require_relative './personality_test'
-require_relative './errors/invalid_input_error'
+require_relative "classes/user"
+# require_relative 'classes/UserInterface'
+require_relative 'errors/invalid_input_error'
+require_relative './help.rb'
 
 
 # Present welcome message to the user 
 
 def intro
   puts "Welcome to 'What Next?', a terminal-based application to help you decide on your future career path!".green 
- 
 end
 
 intro
@@ -24,9 +23,24 @@ answer = prompt.select("What would you like to do next?".yellow, %w(Quiz Compare
 
 case answer
 when "Quiz"
-  puts "placeholder1"
+  # run quiz help function to introduce quiz functionality
+  quiz_help
+  # begin quiz to add user personality information to profile
+  user.personality_profile.quiz
+  user.personality_profile.generate_personality_map
+  user.generate_personality_type
+  
 when "Compare"
-  puts "placeholder2"
+  compare_help
+  begin 
+  jobs = get_occupation("./occupation_data.json")
+  rescue => e
+    puts e.message
+    retry
+  end
+  p jobs
+  answer = prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary, Growth), 'Job Size',)
+  
 when "Search"
   puts "placeholder3"
 when "Help"

@@ -36,9 +36,4 @@ class User
   end
 end
 
-user = User.new('tom')
-user.personality_profile.quiz
-user.personality_profile.generate_personality_map
-user.generate_personality_type
-puts user.personality_type
 
