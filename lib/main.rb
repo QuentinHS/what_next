@@ -1,8 +1,11 @@
 require "tty-prompt"
 require 'colorize'
-require_relative "classes/user"
+require "json"
+require_relative "./classes/user"
+require_relative './classes/occupation'
 # require_relative 'classes/UserInterface'
-require_relative 'errors/invalid_input_error'
+require_relative './errors/invalid_input_error'
+require_relative "./comparison"
 require_relative './help.rb'
 
 
@@ -38,7 +41,7 @@ when "Compare"
     puts e.message
     retry
   end
-  p jobs
+  
   answer = prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary, Growth), 'Job Size',)
   
 when "Search"

@@ -46,11 +46,3 @@ def get_occupation(occupation_data)
     second_occupation}
 end
  
-begin
-  jobs = get_occupation("./occupation_data.json")
-rescue => e
-  puts e.message
-  retry
-end
-
-p jobs
