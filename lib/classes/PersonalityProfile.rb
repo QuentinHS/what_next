@@ -110,9 +110,9 @@ class PersonalityProfile
 
 end
 
-person = PersonalityProfile.new
-person.quiz
-person.generate_personality_map
-p person.profile_map
-p person.quiz_answers
+# person = PersonalityProfile.new
+# person.quiz
+# person.generate_personality_map
+# p person.profile_map
+# p person.quiz_answers
 
