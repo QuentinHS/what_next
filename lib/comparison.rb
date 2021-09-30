@@ -84,7 +84,9 @@ end
     # Display second message to use to compare average salaries
     puts "#{occupation_one_instance.job_name.capitalize}s also have a #{occupation_one_instance.salary_average == occupation_two_instance.salary_average ? "similar" : occupation_one_instance.salary_average > occupation_two_instance.salary_average ? "higher" : "lower"} average salary #{ occupation_one_instance.salary_average == occupation_two_instance.salary_average ? 'to': 'than'} #{occupation_two_instance.job_name}s.".magenta
     # Display final message showing potential high salary for occupations
-    puts "On the high end, #{occupation_one_instance.job_name}s can make as much as $#{occupation_one_instance.salary_high} per year. #{occupation_two_instance.job_name.capitalize}s, on the other hand, can make as much as $#{occupation_two_instance.salary_high} per year.".cyan
+    puts "An entry-level #{occupation_one_instance.job_name} will typically make around $#{occupation_one_instance.salary_min} per year, while entry-level #{occupation_two_instance.job_name}s will generally start on around $#{occupation_two_instance.salary_min}.".green
+    puts "By mid-career, an average #{occupation_one_instance.job_name} will earn approximately $#{occupation_one_instance.salary_average} per year, while #{occupation_two_instance.job_name}s will typically be earning around $#{occupation_two_instance.salary_average} at the same career level.".blue
+    puts "On the high end, #{occupation_one_instance.job_name}s can make as much as $#{occupation_one_instance.salary_high} per year. #{occupation_two_instance.job_name.capitalize}s, on the other hand, may earn $#{occupation_two_instance.salary_high} per year at the peak of their career.".cyan
   end
 
   # Use retrieved index to find occupations for comparison
