@@ -7,7 +7,9 @@ require_relative './errors/invalid_input_error'
 
 # Create validation function to check if occupation exists in database using name property
 def validate_comparison(occupations, answer)
-  occupations.any? {|item| item.job_name == answer}
+  occupations.any? do |item| 
+    item.job_name == answer || item.job_aliases.include?(answer) 
+  end 
 end
 
 # Create list of occupation instances from occupation class that can be used for different features
@@ -48,6 +50,12 @@ def get_occupation(occupation_data)
     # Raise error if user tries to compare the same job
   raise InvalidInputError, "Sorry, the two occupations cannot be the same, please try again or press -q to exit.".red if first_occupation == second_occupation
 
+  # if job name is alias, convert to primary name
+  occupations.each do |occupation|
+    first_occupation = occupation.job_name if 
+  end
+
+  # return user occupation input 
   return {occupation_list: occupations, 
     first_occupation: first_occupation, second_occupation: 
     second_occupation}
