@@ -7,39 +7,28 @@ require_relative './classes/occupation'
 require_relative './errors/invalid_input_error'
 require_relative "./comparison"
 require_relative './help.rb'
+require_relative './classes/UserInterface'
+
 
 
 # Present welcome message to the user 
 
-def intro
-  puts "Welcome to 'What Next?', a terminal-based application to help you decide on your future career path!".green 
-end
+interface = UserInterface.new('./occupation_data.json')
+interface.intro
+interface.create_user
+interface.show_menu
 
-intro
-
-# Create new prompt
-prompt = TTY::Prompt.new
-# Ask user for name input
-name = prompt.ask("Can we start with your name? You can just press 'enter' to remain anonymous.".magenta, default: "anonymous").strip.capitalize
-# Create new user object with name parameter 
-user = User.new(name)
-
-puts "Hi #{user.name}! If you're feeling a bit lost, you're welcome to take a short quiz that will hopefully give you a few helpful suggestions. If you already know your personality type (say you've done a Myer-Briggs or Keirsey-style test before), you can also search for jobs that might suit your personality type. Or you can just compare two career options directly.".cyan
-
-# Ask user which option they want to select
-answer = prompt.select("What would you like to do next?".yellow, %w(Quiz Compare Search Help About))
-
-case answer
+case interface.answer
 when "Quiz"
   # run quiz help function to introduce quiz functionality
   quiz_help
   # begin quiz to add user personality information to profile
-  user.personality_profile.quiz
-  user.personality_profile.generate_personality_map
-  user.generate_personality_type
-  user.generate_personality_temperament
-  user.temperament.give_personality_info
-  user.generate_occupation_suggestion('./occupation_data.json')
+  interface.user.personality_profile.generate_personality_map
+  interface.user.personality_profile.quiz
+  interface.user.generate_personality_type
+  interface.user.generate_personality_temperament
+  interface.user.temperament.give_personality_info
+  interface.user.generate_occupation_suggestion('./occupation_data.json')
   
 when "Compare"
   compare_help
@@ -50,7 +39,7 @@ when "Compare"
     retry
   end
   
-  answer = prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation')
+  answer = interface.prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation')
   puts answer
   case answer
   when "Salary"
