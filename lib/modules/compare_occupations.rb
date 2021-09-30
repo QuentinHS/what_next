@@ -20,7 +20,7 @@ module CompareOccupations
 
     # create list of occupation instances based on data
     data.each do |item|
-      occupation = Occupation.new(item[:name], item[:salary_min], item[:salary_average], item[:salary_high], item[:growing], item[:long_term_growth], item[:job_size], item[:vulnerable_to_automation], item[:personality_suitability])
+      occupation = Occupation.new(item[:name], item[:job_aliases], item[:salary_min], item[:salary_average], item[:salary_high], item[:growing], item[:long_term_growth], item[:job_size], item[:vulnerable_to_automation], item[:personality_suitability])
     
       occupations << occupation
     end

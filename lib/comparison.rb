@@ -19,7 +19,7 @@ def load_occupation_data(occupation_data)
 
   # create list of occupation instances based on data
   data.each do |item|
-    occupation = Occupation.new(item[:name], item[:salary_min], item[:salary_average], item[:salary_high], item[:growing], item[:long_term_growth], item[:job_size], item[:vulnerable_to_automation], item[:personality_suitability])
+    occupation = Occupation.new(item[:name], item[:aliases], item[:salary_min], item[:salary_average], item[:salary_high], item[:growing], item[:long_term_growth], item[:job_size], item[:vulnerable_to_automation], item[:personality_suitability])
   
     occupations << occupation
   end
@@ -118,7 +118,7 @@ def compare_occupation_job_size(jobs)
     # Display first comparison message to user for minimum salaries
     puts "#{occupation_one_instance.job_name.capitalize}s are part of a #{occupation_one_instance.job_size == occupation_two_instance.job_size ? 'similarly-sized' : occupation_one_instance.job_size > occupation_two_instance.job_size ? 'larger' : 'smaller'} profession than #{occupation_two_instance.job_name}s.".blue
     
-    puts "As a whole, #{occupation_one_instance.job_name}s are members of a #{occupation_one_size} profession, while #{occupation_two_instance.job_name}s are part of a #{occupation_two_size} profession.".cyan
+    puts "As a whole, #{occupation_one_instance.job_name}s are members of a #{occupation_one_size} profession with #{occupation_one_instance.job_size} active workers, while #{occupation_two_instance.job_name}s are part of a #{occupation_two_size} profession with #{occupation_two_instance.job_size} current members.".cyan
     
    
 end

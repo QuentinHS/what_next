@@ -52,6 +52,8 @@ class UserInterface
     @user.generate_personality_temperament
     @user.temperament.give_personality_info
     @user.generate_occupation_suggestion(data)
+    self.show_menu
+    self.choose_menu_option(data)
      when "Compare"
       Help.compare_help
       begin 
