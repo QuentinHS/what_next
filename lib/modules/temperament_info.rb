@@ -66,6 +66,10 @@ module TemperamentInfo
   def self.infp_info
     puts "Your personality subtype is the Healer, a type of Idealist. Healers are calm, serene figures, who may seem shy or distant from those around them. They seek to resolve conflict and bring health to themselves and those around them. They tend to be optimistic about the world, seeing it as an inherently ethical place full of possibilities. Sometimes this idealism can be an isolating influence on Healers. Healers are adapable, innovative figures at work, impatient with routine but comfortable with complexity, and always looking a better way to accomplish a task. Healers may care more about feelings than facts, but make excellent scholars, and they often have a gift for storytelling.".magenta
   end
+
+    def self.entj_info
+    puts "Your personality subtype is the Fieldmarshal, a type of the Rational temperament. Fieldmarshals are natural organisers".magenta
+  end
   
   
   
