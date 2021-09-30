@@ -35,7 +35,7 @@ class UserInterface
 
   def show_menu
     # Ask user which option they want to select
-    answer = @prompt.select("What would you like to do next?".yellow, %w(Quiz Compare Search Help About))
+    answer = @prompt.select("What would you like to do next?".yellow, %w(Quiz Compare Search Help About Exit))
     @answer = answer
   end
 
@@ -64,13 +64,20 @@ class UserInterface
       case @answer
       when "Salary"
         compare_occupation_salary(self.jobs)
-        
+        self.show_menu
+        self.choose_menu_option(data)
       when "Growth"
         compare_occupation_growth(self.jobs)
+        self.show_menu
+        self.choose_menu_option(data)
       when "Job Size"
         compare_occupation_job_size(self.jobs)
+        self.show_menu
+        self.choose_menu_option(data)
       when 'Vulnerability to Automation'
         compare_occupation_automation_vulnerability(self.jobs)
+        self.show_menu
+        self.choose_menu_option(data)
       end
     when "Search"
       puts "placeholder3"
@@ -78,6 +85,8 @@ class UserInterface
       puts "placeholder4"
     when "About"
       puts "placeholder5"
+    when "Exit"
+      return
     end
 
   end

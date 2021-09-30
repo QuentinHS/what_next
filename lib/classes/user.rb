@@ -38,6 +38,7 @@ class User
     @personality_type = personality_type
   end
 
+  # Assign a temperament (artisan, guardian, idealist or rational) to the user based on the scores on their quiz and personality profile
   def generate_personality_temperament
     case @personality_type
     when 'estp'
@@ -75,6 +76,7 @@ class User
     end     
   end
 
+  # Based on the temperament assigned above, loop through occupation data to check if temperament matches any jobs, along with additional criteria to see if job is sufficiently large, not vulnerable to automate etc
   def generate_occupation_suggestion(occupation_data)
       @occupations = OccupationData.load_occupation_data(occupation_data)
       puts "Based on your #{self.personality_type.upcase} personality type, you may be particularly compatible with the following occupations:".green
