@@ -47,7 +47,6 @@ class User
 
   def to_s
     puts "Hi, my name is #{self.name}, I am a #{self.personality_type} and I am a #{self.temperament}"
-    
   end
 end
 

@@ -64,11 +64,7 @@ class Temperament
   end
 
 
-  def to_s
-    puts "I am a #{self.temperament_type} and a #{self.character_type}"
-  end
+
 
 end
 
-temp = Temperament.new('Artisan', 'estp')
-temp.give_personality_info
