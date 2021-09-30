@@ -37,6 +37,8 @@ when "Quiz"
   user.personality_profile.quiz
   user.personality_profile.generate_personality_map
   user.generate_personality_type
+  user.generate_personality_temperament
+  user.to_s
   
 when "Compare"
   compare_help

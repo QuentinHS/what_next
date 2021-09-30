@@ -10,9 +10,9 @@ def validate_comparison(occupations, answer)
   occupations.any? {|item| item.job_name == answer}
 end
 
-# Get user choices for occupation search
-def get_occupation(occupation_data)
-  # Load job data from json occupations file
+# Create list of occupation instances from occupation class that can be used for different features
+def load_occupation_data(occupation_data)
+    # Load job data from json occupations file
   data = JSON.load_file(occupation_data, symbolize_names: true)  
   # create list to store occupation instances
   occupations = []
@@ -23,6 +23,13 @@ def get_occupation(occupation_data)
   
     occupations << occupation
   end
+  occupations
+end
+
+# Get user choices for occupation search
+def get_occupation(occupation_data)
+
+  occupations = load_occupation_data(occupation_data)
 
   # Get user input for first occupation comparison choice
   puts "Please enter the first occupation:"
