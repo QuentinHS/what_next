@@ -5,11 +5,12 @@ require_relative "./user"
 require_relative './occupation'
 require_relative '../errors/invalid_input_error'
 require_relative "../comparison"
-require_relative '../help'
+require_relative '../modules/help'
 
 class UserInterface
   attr_accessor :user, :prompt, :answer, :jobs
-  def initialize(data)
+  include Help
+  def initialize
     @user = nil
     # Create new prompt
     @prompt = TTY::Prompt.new
@@ -19,6 +20,7 @@ class UserInterface
 
   def intro
     puts "Welcome to 'What Next?', a terminal-based application to help you decide on your future career path!".green 
+   
   end
 
    def create_user
@@ -37,5 +39,19 @@ class UserInterface
     @answer = answer
   end
 
-
+  def choose_menu_option(data)
+    case self.answer
+    when "Quiz"
+    Help.quiz_help
+    # run quiz help function to introduce quiz functionality
+    # quiz_help
+    # begin quiz to add user personality information to profile
+    self.user.personality_profile.quiz
+    self.user.personality_profile.generate_personality_map
+    self.user.generate_personality_type
+    self.user.generate_personality_temperament
+    self.user.temperament.give_personality_info
+    self.user.generate_occupation_suggestion(data)
+    end
+  end
 end
