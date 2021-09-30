@@ -33,7 +33,6 @@ module TemperamentInfo
     puts "Your personality subtype is the Composer, a type of Artisan. Composers are highly in tune with their senses, and have an innante sense of what works and what doesn't in art. They are often seized by their aristic motives, and can lose themselves in their pursuits. They are sensitive to the pain and suffering of others, and have a rapport with children and animals.".magenta
   end
 
-  
   def self.estj_info
     puts "Your personality subtype is the Supervisor, a type of Guardian. Supervisors are community-minded individuals who are generous with their time, money and energy, and seek to benefit their community in whatever way they can. Supervisors generally like to take charge and be in control, but their responsibility seriously, and will subordinate themselves and cooperate where necessary. Their greatest virtue is their work ethic, while their weaknesses can be a failure to question authority and tradition.".magenta
   end
