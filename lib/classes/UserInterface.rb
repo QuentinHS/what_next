@@ -62,7 +62,7 @@ class UserInterface
         puts e.message
         retry
       end
-      @answer = @prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation')
+      @answer = @prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation', 'Return to Main Menu')
       case @answer
       when "Salary"
         compare_occupation_salary(self.jobs)
@@ -78,6 +78,9 @@ class UserInterface
         self.choose_menu_option(data)
       when 'Vulnerability to Automation'
         compare_occupation_automation_vulnerability(self.jobs)
+        self.show_menu
+        self.choose_menu_option(data)
+      when 'Return to Main Menu'
         self.show_menu
         self.choose_menu_option(data)
       end
