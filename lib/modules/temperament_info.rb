@@ -67,10 +67,21 @@ module TemperamentInfo
     puts "Your personality subtype is the Healer, a type of Idealist. Healers are calm, serene figures, who may seem shy or distant from those around them. They seek to resolve conflict and bring health to themselves and those around them. They tend to be optimistic about the world, seeing it as an inherently ethical place full of possibilities. Sometimes this idealism can be an isolating influence on Healers. Healers are adapable, innovative figures at work, impatient with routine but comfortable with complexity, and always looking a better way to accomplish a task. Healers may care more about feelings than facts, but make excellent scholars, and they often have a gift for storytelling.".magenta
   end
 
-    def self.entj_info
-    puts "Your personality subtype is the Fieldmarshal, a type of the Rational temperament. Fieldmarshals are natural organisers".magenta
+  def self.entj_info
+    puts "Your personality subtype is the Fieldmarshal, a type of the Rational temperament. Fieldmarshals are natural organisers, adept at devising contingency plans. They excel in positions of responsibility and authority, with a great capacity to visualise the long-term future of an organisation. They prefer the use of impersonal data rather than feelings for decision making, and desire to avoid bureaucratic red tape, striving for ever increasing efficiency.".magenta
   end
   
+  def self.intj_info
+    puts "Your personality subtype is the Mastermind, a type of the Rational temperament. Masterminds are a rare personality type, skilled in leadership and solving complex problems through intricately detailed plans. They aim always for maximum efficiency, and while they don't seek leadership, invariably rise to these positions.".magenta
+  end
+  
+  def self.entp_info
+    puts "Your personality subtype is the Inventor, a type of the Rational temperament. Inventor  are naturally interested in gadgets and technology, and are keen innovators and entrepreneurs. They are interested in new possibilities and designs, and constantly trying to look at the world from a new angle. They are lively non-conformists, easy-going and expressive, always believing they can achieve the impossible".magenta
+  end
+
+    def self.intp_info
+    puts "Your personality subtype is the Architect, a type of the Rational temperament. Architects are master designers, seeing the world as something to be understood, explained, re-examined, reconstructed. They see reality as endlessly malleable, and have a natural affinity for detecting contradictions and inconsistency. One of the rarest personality types, architects may seem reserved and difficult to understand, but their relentless desire to change the world has had a tremendous impact throughout history.".magenta
+  end
   
   
   
