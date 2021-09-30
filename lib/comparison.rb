@@ -51,10 +51,14 @@ def get_occupation(occupation_data)
   raise InvalidInputError, "Sorry, the two occupations cannot be the same, please try again or press -q to exit.".red if first_occupation == second_occupation
 
   # if job name is alias, convert to primary name
-  occupations.each do |occupation|
-    first_occupation = occupation.job_name if 
+  occupations.any? do |item| 
+    if item.job_aliases.include?(first_occupation)
+      first_occupation = item.job_name
+    end
+    if item.job_aliases.include?(second_occupation)
+      second_occupation = item.job_name
+    end
   end
-
   # return user occupation input 
   return {occupation_list: occupations, 
     first_occupation: first_occupation, second_occupation: 
