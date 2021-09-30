@@ -50,13 +50,23 @@ module TemperamentInfo
     puts "Your personality subtype is the Protector, a type of Guardian. Protectors are primarily interested in the safety and security of those that they care about. They are immensely loyal, and filled with a sense of duty and obligation to their family, friends and community. They dislike constantly changing rules and conditions, and value tradition and heritage. They place value on rank and titles, cherish family history, and work diligently in jobs others may avoid. Their lack of external emotion and shyness may be misinterpreted as coldness, but Protectors are typically sympathetic and warm-hearted to those they know and care about.".magenta
   end
 
-  def self.isfj_info
+  def self.enfj_info
     puts "Your personality subtype is the Teacher, a type of Idealist. Teachers have a natural affinity towards guiding others, with a seemingly limitless ability to come up with imaginative learning activities. They consider other people to be their highest priority, and tend to possess excellent communication skills, as well as being charismatic public speakers. They take commitments seriously, and are highly-organised. Teachers have deep insights into their own nature, but are also sensitive to the feelings and needs of others, and will often pick up emotions and beliefs from those around them.".magenta
   end
 
-  def self.isfj_info
+  def self.infj_info
     puts "Your personality subtype is the Counselor, a type of Idealist. Counselors are a rare breed indeed, and highly motivated by helping others realise their potential. They are private people with rich inner lives, which may be a puzzle even to themselves. They are concerned with how others feel, and are good at helping organisations run smoothly. They possess vivid imaginations, and their sensitive natures may help them recognise in others things that person cannot see in themselves.".magenta
   end
+  
+  
+  def self.enfp_info
+    puts "Your personality subtype is the Champion, a type of Idealist. Champions are a very rare type, being passionate people with boundless enthusiasm. They seek to get to the heart of human experience, and have a strong desire to speak out on issues and events, often becoming inspiring leaders. They are deeply idealistic, perceptive and intuitive, with a deep understanding of their social environment. Champions are warm-hearted and good with new people, able to handle employees or students skillfully. They are positive and exuberant people, and their confidence has the effect of driving others around them to also better themselves.".magenta
+  end
+
+  def self.infp_info
+    puts "Your personality subtype is the Healer, a type of Idealist. Healers are calm, serene figures, who may seem shy or distant from those around them. They seek to resolve conflict and bring health to themselves and those around them. They tend to be optimistic about the world, seeing it as an inherently ethical place full of possibilities. Sometimes this idealism can be an isolating influence on Healers. Healers are adapable, innovative figures at work, impatient with routine but comfortable with complexity, and always looking a better way to accomplish a task. Healers may care more about feelings than facts, but make excellent scholars, and they often have a gift for storytelling.".magenta
+  end
+  
   
   
   
