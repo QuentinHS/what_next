@@ -39,6 +39,7 @@ when "Quiz"
   user.generate_personality_type
   user.generate_personality_temperament
   user.temperament.give_personality_info
+  user.generate_occupation_suggestion('./occupation_data.json')
   
 when "Compare"
   compare_help

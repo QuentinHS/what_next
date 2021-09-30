@@ -3,16 +3,21 @@ require 'colorize'
 require_relative "./PersonalityProfile"
 require_relative "./Temperament"
 require_relative '../errors/invalid_input_error'
+require_relative '../modules/occupation_data'
+
 
 class User
-  attr_reader :name, :personality_type, :temperament
-  attr_accessor :personality_profile
+  attr_reader :name, :temperament
+  attr_accessor :personality_profile, :occupations, :personality_type
+  
+  include OccupationData
 
   def initialize(name)
     @name = name
     @personality_profile = PersonalityProfile.new
     @personality_type = nil
     @temperament = nil
+    @occupations = []
   end
 
   # Use PersonalityProfile class to generate personality type for the user
@@ -45,8 +50,19 @@ class User
     end     
   end
 
-  def to_s
-    puts "Hi, my name is #{self.name}, I am a #{self.personality_type} and I am a #{self.temperament}"
+  def generate_occupation_suggestion(occupation_data)
+      @occupations = OccupationData.load_occupation_data(occupation_data)
+      puts "Based on your #{self.personality_type.upcase} personality type, you may be particularly compatible with the following occupations:".green
+      found_occupation = false
+      @occupations.each do |occupation|
+        if occupation.personality_suitability.join(" ").downcase.include?(self.personality_type) && occupation.job_size > 15000 && occupation.growing && !occupation.vulnerable_to_automation
+          puts "#{occupation.job_name.capitalize}".cyan
+          found_occupation = true
+        end
+      end
+      if !found_occupation 
+        puts "Sorry, there were no matches for your personality type :( We'll try to add more occupations to our list in the future, I'm sure we can find something for you!".red
+      end
   end
 end
 
