@@ -13,7 +13,7 @@ module Help
   end
 
   def self.search_help
-    puts "this is the search help"
+    puts "If you've already done a Myer-Briggs or Keirsey-style test elsewhere and know your personality type, you can select your result here if you'd like to see all the most suitable jobs for that personality type in our database without taking an extra quiz.".green
   end 
 
 end

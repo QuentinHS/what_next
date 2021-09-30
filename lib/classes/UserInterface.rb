@@ -6,10 +6,12 @@ require_relative './occupation'
 require_relative '../errors/invalid_input_error'
 require_relative "../comparison"
 require_relative '../modules/help'
+require_relative '../modules/search'
 
 class UserInterface
   attr_accessor :user, :prompt, :answer, :jobs
   include Help
+  include Search
   def initialize
     @user = nil
     # Create new prompt
@@ -85,7 +87,18 @@ class UserInterface
         self.choose_menu_option(data)
       end
     when "Search"
-      puts "placeholder3"
+      Help.search_help
+      @answer = @prompt.select("What is your personality type?".yellow, 'Return to Main Menu', %w(ISTJ ISTP ISFJ ISFP INFJ INFP INTJ INTP ESTP ESTJ ESFP ESFJ ENFP ENFJ ENTP ENTJ))
+      if @answer == 'Return to Main Menu'
+        self.show_menu
+        self.choose_menu_option(data)
+      else 
+        @jobs = load_occupation_data(data)
+        job_list = Search.retrieve_jobs_by_personality(@answer, @jobs)
+        Search.display_suitable_jobs(@answer, job_list)
+        self.show_menu
+        self.choose_menu_option(data)
+      end
     when "Help"
       puts "placeholder4"
     when "About"
