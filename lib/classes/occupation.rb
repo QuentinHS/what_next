@@ -14,14 +14,6 @@ class Occupation
     @personality_suitability = personality_suitability
   end
 
-  # Calculate ranking of careers  
-  def calculate_career_ranking
-  end
-
-  def generate_career_suggestion
-  end
-  
-
 
 end
 

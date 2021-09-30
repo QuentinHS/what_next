@@ -46,12 +46,12 @@ class UserInterface
     # run quiz help function to introduce quiz functionality
     # quiz_help
     # begin quiz to add user personality information to profile
-    self.user.personality_profile.quiz
-    self.user.personality_profile.generate_personality_map
-    self.user.generate_personality_type
-    self.user.generate_personality_temperament
-    self.user.temperament.give_personality_info
-    self.user.generate_occupation_suggestion(data)
+    @user.personality_profile.quiz
+    @user.personality_profile.generate_personality_map
+    @user.generate_personality_type
+    @user.generate_personality_temperament
+    @user.temperament.give_personality_info
+    @user.generate_occupation_suggestion(data)
      when "Compare"
       Help.compare_help
       begin 
@@ -64,6 +64,7 @@ class UserInterface
       case @answer
       when "Salary"
         compare_occupation_salary(self.jobs)
+        
       when "Growth"
         compare_occupation_growth(self.jobs)
       when "Job Size"

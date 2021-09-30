@@ -39,13 +39,38 @@ class User
   end
 
   def generate_personality_temperament
-    if @personality_type = 'estp' || 'istp' || 'esfp' || 'isfp'
+    case @personality_type
+    when 'estp'
       @temperament = Temperament.new('Artisan', @personality_type)
-    elsif @personality_type = 'estj' || 'istj' || 'esfj' || 'isfj'
-      @temperament = Temperament.new('Guardian', @personality_type) 
-    elsif @personality_type = 'enfj' || 'infj' || 'enfp' || 'infp'
-        @temperament = Temperament.new('Idealist', @personality_type) 
-    else   
+    when 'istp'
+      @temperament = Temperament.new('Artisan', @personality_type)
+    when 'esfp'
+       @temperament = Temperament.new('Artisan', @personality_type)
+    when 'isfp'
+      @temperament = Temperament.new('Artisan', @personality_type)
+    when  'estj'
+       @temperament = Temperament.new('Guardian', @personality_type)
+    when 'istj'
+       @temperament = Temperament.new('Guardian', @personality_type)
+    when 'esfp' 
+       @temperament = Temperament.new('Guardian', @personality_type)
+    when 'isfj'
+       @temperament = Temperament.new('Guardian', @personality_type) 
+    when 'enfj'
+      @temperament = Temperament.new('Idealist', @personality_type)
+    when 'infj'
+      @temperament = Temperament.new('Idealist', @personality_type)
+    when 'enfp'
+      @temperament = Temperament.new('Idealist', @personality_type)
+    when 'infp'
+      @temperament = Temperament.new('Idealist', @personality_type)
+    when 'entj'
+      @temperament = Temperament.new('Rational', @personality_type) 
+    when 'intj'
+      @temperament = Temperament.new('Rational', @personality_type) 
+    when 'entp'
+      @temperament = Temperament.new('Rational', @personality_type) 
+    when 'intp'
       @temperament = Temperament.new('Rational', @personality_type) 
     end     
   end
