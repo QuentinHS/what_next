@@ -52,11 +52,10 @@ class PersonalityProfile
       puts "B) #{pieces[2]}".yellow
       answer = get_answer
 
-      case answer
-      when "-q"
-        quiz_answers = []  
-        break
+      if answer == "-q" || answer == "--quit"
+        return @quiz_answers = []  
       end
+   
       quiz_answers << answer
     rescue => e 
       puts e.message
@@ -69,6 +68,8 @@ class PersonalityProfile
 
   # Use quiz answers to generate personality map which is stored in state
   def generate_personality_map
+    return nil if @quiz_answers.empty?
+
   # Reset personality profile map in case user wants to take test multiple times
   @profile_map = {
     extraverted: 0,

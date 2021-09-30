@@ -47,15 +47,24 @@ class UserInterface
     Help.quiz_help
     # run quiz help function to introduce quiz functionality
     # quiz_help
-    # begin quiz to add user personality information to profile
+    # begin quiz to add user personality information to profile. Make sure valid data is being returned using begin|rescue block
+    begin
     @user.personality_profile.quiz
     @user.personality_profile.generate_personality_map
     @user.generate_personality_type
     @user.generate_personality_temperament
     @user.temperament.give_personality_info
     @user.generate_occupation_suggestion(data)
+    self.reset_interface
     self.show_menu
     self.choose_menu_option(data)
+
+    # If an error is raised, return to the main menu
+    rescue
+      self.reset_interface
+      self.show_menu
+      self.choose_menu_option(data)
+    end
      when "Compare"
       Help.compare_help
       begin 
@@ -106,6 +115,12 @@ class UserInterface
     when "Exit"
       return
     end
-
   end
+  
+  def reset_interface
+    @user.personality_type = nil
+    @user.personality_profile.quiz_answers = []
+    @user.temperament = nil
+  end
+
 end

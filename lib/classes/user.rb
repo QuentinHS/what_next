@@ -7,8 +7,8 @@ require_relative '../modules/occupation_data'
 
 
 class User
-  attr_reader :name, :temperament
-  attr_accessor :personality_profile, :occupations, :personality_type
+  attr_reader :name 
+  attr_accessor :personality_profile, :occupations, :personality_type, :temperament
   
   include OccupationData
 
@@ -23,6 +23,7 @@ class User
   # Use PersonalityProfile class to generate personality type for the user
 
   def generate_personality_type
+    return nil if self.personality_profile.quiz_answers.empty?
     # reset personality_type value to avoid duplication
     personality_type = ""
     # Take personality values from personality_profile class instances
@@ -40,6 +41,8 @@ class User
 
   # Assign a temperament (artisan, guardian, idealist or rational) to the user based on the scores on their quiz and personality profile
   def generate_personality_temperament
+    return nil if self.personality_profile.quiz_answers.empty?
+
     case @personality_type
     when 'estp'
       @temperament = Temperament.new('Artisan', @personality_type)
@@ -78,6 +81,8 @@ class User
 
   # Based on the temperament assigned above, loop through occupation data to check if temperament matches any jobs, along with additional criteria to see if job is sufficiently large, not vulnerable to automate etc
   def generate_occupation_suggestion(occupation_data)
+    return nil if self.personality_profile.quiz_answers.empty?
+
       @occupations = OccupationData.load_occupation_data(occupation_data)
       puts "Based on your #{self.personality_type.upcase} personality type, you may be particularly compatible with the following occupations:".green
       found_occupation = false
