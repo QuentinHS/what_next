@@ -52,6 +52,32 @@ class UserInterface
     self.user.generate_personality_temperament
     self.user.temperament.give_personality_info
     self.user.generate_occupation_suggestion(data)
+     when "Compare"
+      Help.compare_help
+      begin 
+      @jobs = get_occupation(data)
+      rescue => e
+        puts e.message
+        retry
+      end
+      @answer = @prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation')
+      case @answer
+      when "Salary"
+        compare_occupation_salary(self.jobs)
+      when "Growth"
+        compare_occupation_growth(self.jobs)
+      when "Job Size"
+        compare_occupation_job_size(self.jobs)
+      when 'Vulnerability to Automation'
+        compare_occupation_automation_vulnerability(self.jobs)
+      end
+    when "Search"
+      puts "placeholder3"
+    when "Help"
+      puts "placeholder4"
+    when "About"
+      puts "placeholder5"
     end
+
   end
 end
