@@ -4,14 +4,7 @@ require 'colorize'
 require_relative './classes/occupation'
 require_relative './errors/invalid_input_error'
 require_relative './modules/occupation_data'
-
-
-# Create validation function to check if occupation exists in database using name property
-def validate_comparison(occupations, answer)
-  occupations.any? do |item| 
-    item.job_name == answer || item.job_aliases.include?(answer) 
-  end 
-end
+require_relative './modules/compare_occupations'
 
 
 # Get user choices for occupation search
@@ -25,14 +18,14 @@ def get_occupation(occupation_data)
   # Return from function if user desires
   return if first_occupation == "-q"
   # Raise error if job cannot be found in job titles
-  raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q to exit.".red unless validate_comparison(occupations, first_occupation)
+  raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q to exit.".red unless CompareOccupations.validate_comparison(occupations, first_occupation)
   
     # Get user input for second occupation comparison choice
   puts "Please enter the second occupation:"
   second_occupation = gets.chomp.strip.downcase
   return if first_occupation == "-q"  
   # Raise error if job cannot be found in job titles
-  raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q to exit.".red unless validate_comparison(occupations, second_occupation)
+  raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q to exit.".red unless CompareOccupations.validate_comparison(occupations, second_occupation)
     # Raise error if user tries to compare the same job
   raise InvalidInputError, "Sorry, the two occupations cannot be the same, please try again or press -q to exit.".red if first_occupation == second_occupation
 
