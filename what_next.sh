@@ -1,3 +1,3 @@
 #!/bin/bash
-ruby ./lib/main.rb
+ruby ./main.rb
 return 0
