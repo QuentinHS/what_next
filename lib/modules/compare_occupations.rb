@@ -24,7 +24,7 @@ def self.get_occupation(occupation_data)
   first_occupation = gets.chomp.strip.downcase
   # Return from function if user desires
   if first_occupation == "-q" || first_occupation == "--quit"
-     break 
+     return
   end
   # Raise error if job cannot be found in job titles
   raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q  or --quit to exit.".red unless CompareOccupations.validate_comparison(occupations, first_occupation)
