@@ -4,7 +4,6 @@ require "json"
 require_relative "./user"
 require_relative './occupation'
 require_relative '../errors/invalid_input_error'
-require_relative "../comparison"
 require_relative '../modules/help'
 require_relative '../modules/search'
 require_relative '../modules/occupation_data'
