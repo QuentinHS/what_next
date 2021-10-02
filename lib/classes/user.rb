@@ -1,7 +1,7 @@
 require 'json'
 require 'colorize'
-require_relative "./PersonalityProfile"
-require_relative "./Temperament"
+require_relative './PersonalityProfile'
+require_relative './Temperament'
 require_relative '../errors/invalid_input_error'
 require_relative '../modules/occupation_data'
 

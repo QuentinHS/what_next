@@ -1,7 +1,7 @@
-require "tty-prompt"
+require 'tty-prompt'
 require 'colorize'
-require "json"
-require_relative "./user"
+require 'json'
+require_relative './user'
 require_relative './occupation'
 require_relative '../errors/invalid_input_error'
 require_relative '../modules/help'

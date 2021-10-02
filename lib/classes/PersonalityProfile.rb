@@ -43,7 +43,14 @@ class PersonalityProfile
   @quiz_answers = []
 
   quiz_answers = []
-  data = JSON.load_file(file, symbolize_names: true)  
+
+  # Attempt to load quiz data, throw error if this fails
+  begin
+  data = JSON.load_file(file, symbolize_names: true)
+  rescue LoadError => e
+    puts e.message
+    return
+  end
   data.each do |item|
     begin
       pieces = item[:question].to_s.split("\n")

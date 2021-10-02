@@ -1,6 +1,6 @@
 
 # Data from https://joboutlook.gov.au/occupations/
-require "json"
+require 'json'
 require 'colorize'
 require_relative '../classes/occupation'
 require_relative '../errors/invalid_input_error'

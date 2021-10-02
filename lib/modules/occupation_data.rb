@@ -1,10 +1,10 @@
-require "json"
-require_relative "../classes/occupation"
+require 'json'
+require_relative '../classes/occupation'
 
 module OccupationData
 
   def self.load_occupation_data(occupation_data)
-    # Load job data from json occupations file
+    # Attempt to load job data from json occupations file and throw error if this is unsuccessful
     begin
     data = JSON.load_file(occupation_data, symbolize_names: true)
     rescue LoadError => e
