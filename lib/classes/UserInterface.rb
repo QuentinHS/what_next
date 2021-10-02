@@ -8,6 +8,7 @@ require_relative "../comparison"
 require_relative '../modules/help'
 require_relative '../modules/search'
 require_relative '../modules/occupation_data'
+require_relative '../modules/compare_occupations'
 
 class UserInterface
   attr_accessor :user, :prompt, :answer, :jobs
@@ -77,19 +78,19 @@ class UserInterface
       @answer = @prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation', 'Return to Main Menu')
       case @answer
       when "Salary"
-        compare_occupation_salary(self.jobs)
+        CompareOccupations.compare_occupation_salary(self.jobs)
         self.show_menu
         self.choose_menu_option(data)
       when "Growth"
-        compare_occupation_growth(self.jobs)
+        CompareOccupations.compare_occupation_growth(self.jobs)
         self.show_menu
         self.choose_menu_option(data)
       when "Job Size"
-        compare_occupation_job_size(self.jobs)
+        CompareOccupations.compare_occupation_job_size(self.jobs)
         self.show_menu
         self.choose_menu_option(data)
       when 'Vulnerability to Automation'
-        compare_occupation_automation_vulnerability(self.jobs)
+        CompareOccupations.compare_occupation_automation_vulnerability(self.jobs)
         self.show_menu
         self.choose_menu_option(data)
       when 'Return to Main Menu'
