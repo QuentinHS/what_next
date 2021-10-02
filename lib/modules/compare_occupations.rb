@@ -23,16 +23,20 @@ def self.get_occupation(occupation_data)
   puts "Please enter the first occupation:"
   first_occupation = gets.chomp.strip.downcase
   # Return from function if user desires
-  return if first_occupation == "-q"
+  if first_occupation == "-q" || first_occupation == "--quit"
+     break 
+  end
   # Raise error if job cannot be found in job titles
-  raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q to exit.".red unless CompareOccupations.validate_comparison(occupations, first_occupation)
+  raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q  or --quit to exit.".red unless CompareOccupations.validate_comparison(occupations, first_occupation)
   
     # Get user input for second occupation comparison choice
   puts "Please enter the second occupation:"
   second_occupation = gets.chomp.strip.downcase
-  return if first_occupation == "-q"  
+  if first_occupation == "-q" || first_occupation == "--quit"
+    return
+  end
   # Raise error if job cannot be found in job titles
-  raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q to exit.".red unless CompareOccupations.validate_comparison(occupations, second_occupation)
+  raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q or --quit to exit.".red unless CompareOccupations.validate_comparison(occupations, second_occupation)
     # Raise error if user tries to compare the same job
   raise InvalidInputError, "Sorry, the two occupations cannot be the same, please try again or press -q to exit.".red if first_occupation == second_occupation
 

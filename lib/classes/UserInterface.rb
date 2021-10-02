@@ -38,7 +38,7 @@ class UserInterface
 
   def show_menu
     # Ask user which option they want to select
-    answer = @prompt.select("What would you like to do next?".yellow, %w(Quiz Compare Search Help About Exit))
+    answer = @prompt.select("What would you like to do next?".yellow, %w(Quiz Compare Search Help Exit))
     @answer = answer
   end
 
@@ -110,9 +110,7 @@ class UserInterface
         self.choose_menu_option(data)
       end
     when "Help"
-      puts "placeholder4"
-    when "About"
-      puts "placeholder5"
+      Help.main_help
     when "Exit"
       return
     end
