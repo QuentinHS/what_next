@@ -4,6 +4,7 @@ require 'json'
 require 'colorize'
 require_relative '../classes/occupation'
 require_relative '../errors/invalid_input_error'
+require_relative '../errors/quit_error'
 require_relative './occupation_data'
 
 
@@ -20,18 +21,23 @@ module CompareOccupations
     puts "Please enter the first occupation:"
     first_occupation = gets.chomp.strip.downcase
     # Return from function if user desires
-    if first_occupation == "-q" || first_occupation == "--quit"
-      return
-    end
+
+
+    raise QuitError if first_occupation == "-q" || first_occupation == "--quit"
+
+  
+
     # Raise error if job cannot be found in job titles
     raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q  or --quit to exit.".red unless CompareOccupations.validate_comparison(occupations, first_occupation)
+
+    
     
       # Get user input for second occupation comparison choice
     puts "Please enter the second occupation:"
     second_occupation = gets.chomp.strip.downcase
-    if first_occupation == "-q" || first_occupation == "--quit"
-      return
-    end
+    
+    raise QuitError if second_occupation == "-q" || second_occupation == "--quit"
+
     # Raise error if job cannot be found in job titles
     raise InvalidInputError, "Sorry, no such occupation was found, please try again or press -q or --quit to exit.".red unless CompareOccupations.validate_comparison(occupations, second_occupation)
       # Raise error if user tries to compare the same job
@@ -48,7 +54,6 @@ module CompareOccupations
   def self.get_occupation(occupation_data, first_occupation, second_occupation)
 
     occupations = OccupationData.load_occupation_data(occupation_data)
-
 
     # if job name is alias, convert to primary name
     occupations.any? do |item| 
@@ -69,8 +74,6 @@ module CompareOccupations
   def self.find_occupation(occupations, occupation_name_input)
     occupations.find_index { |occupation| occupation.job_name == occupation_name_input }
   end
-
-  
 
 
   def self.retrieve_data(occupation_data, occupation_one, occupation_two)

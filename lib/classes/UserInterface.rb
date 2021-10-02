@@ -62,7 +62,6 @@ class UserInterface
 
     # If an error is raised, return to the main menu
     rescue
-      self.reset_interface
       self.show_menu
       self.choose_menu_option(data)
     end
@@ -70,13 +69,16 @@ class UserInterface
       Help.compare_help
       begin 
       input = CompareOccupations.get_input(data)
-      
       @jobs = CompareOccupations.get_occupation(data, input[:first_occupation], input[:second_occupation])
-      rescue => e
+      @answer = @prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation', 'Return to Main Menu')
+      rescue QuitError => e
+        self.show_menu
+        self.choose_menu_option(data)
+      rescue InvalidInputError => e
         puts e.message
         retry
       end
-      @answer = @prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation', 'Return to Main Menu')
+
       case @answer
       when "Salary"
         CompareOccupations.compare_occupation_salary(self.jobs)
@@ -113,6 +115,8 @@ class UserInterface
       end
     when "Help"
       Help.main_help
+      self.show_menu
+      self.choose_menu_option(data)
     when "Exit"
       return
     end

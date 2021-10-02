@@ -1,7 +1,7 @@
 module Help
 
   def self.main_help
-    puts "Welcome again to What Next! It's easy to navigate around the main menu, you can just use the arrow keys to select an option and press the 'enter' key to select an option. Some sections, such as the quiz and the comparison tool will require manual input from the keyboard. If you want to return to the main menu at those points, you can always type '-q' or --'quit'."
+    puts "Welcome again to What Next! It's easy to navigate around the main menu, you can just use the arrow keys to select an option and press the 'enter' key to select an option. Some sections, such as the quiz and the comparison tool will require manual input from the keyboard. If you want to return to the main menu at those points, you can always type '-q' or --'quit'.".green
   end
 
   def self.quiz_help
