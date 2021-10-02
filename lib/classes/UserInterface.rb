@@ -69,7 +69,7 @@ class UserInterface
      when "Compare"
       Help.compare_help
       begin 
-      @jobs = get_occupation(data)
+      @jobs = CompareOccupations.get_occupation(data)
       rescue => e
         puts e.message
         retry
