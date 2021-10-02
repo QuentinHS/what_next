@@ -30,7 +30,7 @@ module CompareOccupations
   # Get user choices for occupation search
   def get_occupation(occupation_data)
 
-    occupations = load_occupation_data(occupation_data)
+    occupations = OccupationData.load_occupation_data(occupation_data)
 
     # Get user input for first occupation comparison choice
     puts "Please enter the first occupation:"

@@ -5,7 +5,12 @@ module OccupationData
 
   def self.load_occupation_data(occupation_data)
     # Load job data from json occupations file
-    data = JSON.load_file(occupation_data, symbolize_names: true)  
+    begin
+    data = JSON.load_file(occupation_data, symbolize_names: true)
+    rescue LoadError => e
+      puts e.message
+      return
+    end
     # create list to store occupation instances
     occupations = []
 

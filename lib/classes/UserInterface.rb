@@ -7,6 +7,7 @@ require_relative '../errors/invalid_input_error'
 require_relative "../comparison"
 require_relative '../modules/help'
 require_relative '../modules/search'
+require_relative '../modules/occupation_data'
 
 class UserInterface
   attr_accessor :user, :prompt, :answer, :jobs
@@ -102,7 +103,7 @@ class UserInterface
         self.show_menu
         self.choose_menu_option(data)
       else 
-        @jobs = load_occupation_data(data)
+        @jobs = OccupationData.load_occupation_data(data)
         job_list = Search.retrieve_jobs_by_personality(@answer, @jobs)
         Search.display_suitable_jobs(@answer, job_list)
         self.show_menu

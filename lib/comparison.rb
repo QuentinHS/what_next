@@ -3,6 +3,7 @@ require "json"
 require 'colorize'
 require_relative './classes/occupation'
 require_relative './errors/invalid_input_error'
+require_relative './modules/occupation_data'
 
 
 # Create validation function to check if occupation exists in database using name property
@@ -12,26 +13,11 @@ def validate_comparison(occupations, answer)
   end 
 end
 
-# Create list of occupation instances from occupation class that can be used for different features
-def load_occupation_data(occupation_data)
-    # Load job data from json occupations file
-  data = JSON.load_file(occupation_data, symbolize_names: true)  
-  # create list to store occupation instances
-  occupations = []
-
-  # create list of occupation instances based on data
-  data.each do |item|
-    occupation = Occupation.new(item[:name], item[:aliases], item[:salary_min], item[:salary_average], item[:salary_high], item[:growing], item[:long_term_growth], item[:job_size], item[:vulnerable_to_automation], item[:personality_suitability])
-  
-    occupations << occupation
-  end
-  occupations
-end
 
 # Get user choices for occupation search
 def get_occupation(occupation_data)
 
-  occupations = load_occupation_data(occupation_data)
+  occupations = OccupationData.load_occupation_data(occupation_data)
 
   # Get user input for first occupation comparison choice
   puts "Please enter the first occupation:"
