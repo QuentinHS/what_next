@@ -69,7 +69,9 @@ class UserInterface
      when "Compare"
       Help.compare_help
       begin 
-      @jobs = CompareOccupations.get_occupation(data)
+      input = CompareOccupations.get_input(data)
+      
+      @jobs = CompareOccupations.get_occupation(data, input[:first_occupation], input[:second_occupation])
       rescue => e
         puts e.message
         retry
