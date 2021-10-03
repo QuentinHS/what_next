@@ -25,7 +25,7 @@ class PersonalityProfile
 
   # Validate that answer is "a" OR "b" (will convert uppercase to lowercase)
   def validate_answer(answer)
-    answer =~ /[abAB]{1}|-q|--quit/   
+    (answer.match(/a|b/) && answer.length == 1) || answer.match(/--quit|-q/)
   end
 
 
