@@ -17,9 +17,9 @@
 
 ### Screenshots
 
-![GitHub]()
-![Trello board]
-![Lucidchart]
+![GitHub](screenshots/GitHub_screenshot.png)
+![Trello](screenshots/Lucidchart_screenshot.png)
+![Lucidchart](screenshots/Trello_screenshot.png)
 
 
 ## Software Development Plan 
@@ -60,7 +60,7 @@ If you select the 'quiz' option, you will be taken to a 70 question quiz. Users 
  
 If you select the 'comparison' option, you will be asked to enter two occupations manually with your keyboard, one after the other. You can also type `-q` or `--quit` to exit back to the main menu. Upon choosing two professions, you will be presented with a selection menu navigated by the arrow keys, in which users may choose the metrics by which they want to compare the professions. Upon selecting a comparison option, you will be returned to the main menu. 
 
-If you select the “search” option,  you will be presented with a range of personality types, and asked to use the arrow keys to navigate the options. Choosing an option will display appropriate jobs for that personality type, at which time you will be returned to the main menu.   
+If you select the 'search' option,  you will be presented with a range of personality types, and asked to use the arrow keys to navigate the options. Choosing an option will display appropriate jobs for that personality type, at which time you will be returned to the main menu.   
 
 #### Error Handling 
 
@@ -70,7 +70,7 @@ At certain points in this application, users are required to input data manually
 
 #### Linux 
 
-1. Clone or download this repository as a zip file 
+1. Clone this respository from GitHub or download this repository as a zip file, then navigate to the new directory. 
 
 2. Run the command `bundle install` from within the src directory to install any necessary dependencies. 
 
@@ -78,9 +78,9 @@ At certain points in this application, users are required to input data manually
 
 #### Windows 
 
-1. Clone or download this github repository as a zip file, then navigate to the new directory. 
+1. Clone this repository from GitHub or download this github repository as a zip file, then navigate to the new directory. 
 
-2. Install the necessary dependencies by running `bundle install` 
+2. Run the command `bundle install` from within the src directory to install any necessary dependencies.  
 
 3. Run the application from the source directory by typing `ruby main.rb`
 
@@ -88,7 +88,7 @@ At certain points in this application, users are required to input data manually
 
 This application utilises the Ruby programming language, which must be installed for it to run. Ruby may be installed [here](ruby-lang.org)   
 
-Bundler has been used to manage dependencies. If you don’t already have bundler installed, you can use the command ‘gem install bundler’. Further instructions can be found [here](https://bundler.io/) 
+Bundler has been used to manage dependencies. If you don’t already have bundler installed, you can use the command `gem install bundler`. Further instructions can be found [here](https://bundler.io/) 
 
 The application also utilises the following Ruby dependencies which must be installed as Ruby gems: 
 
