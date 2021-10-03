@@ -110,8 +110,10 @@ There are minimal hardware requirements for this application. However, it is rec
 
 The included bash script will also not run on Windows-based machines, in which case the application must be run via the `main.rb` file in the src directory.  
 
- 
+### References
 
+Australian Government. Job Outlook. (2021). https://joboutlook.gov.au/
+Payscale. Compensation Research. (2021). https://www.payscale.com/data
  
 
  
