@@ -1,6 +1,6 @@
 require_relative 'classes/UserInterface'
 
-# Present welcome message to the user 
+# Create new interface, display introduction, create a new user, then show that user available options
 
 interface = UserInterface.new
 interface.intro

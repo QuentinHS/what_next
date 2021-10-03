@@ -5,11 +5,13 @@ class Temperament
   include TemperamentInfo
   attr_accessor :temperament_type, :character_type
 
+  # initialise temperament type and character type from personality quiz
   def initialize(temperament_type, character_type)
     @temperament_type = temperament_type
     @character_type = character_type
   end
 
+  # display personality information function based on assigned temperament
   def give_personality_info
     case self.character_type
     when 'estp'

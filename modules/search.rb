@@ -1,4 +1,5 @@
 module Search
+  # retrieve jobs that include selected personality type
   def self.retrieve_jobs_by_personality(temperament, occupations)
     suitable_job_list = []
       occupations.each do |occupation|
@@ -7,6 +8,7 @@ module Search
     suitable_job_list
   end
 
+  # display list of appropriate jobs to the user
   def self.display_suitable_jobs(temperament, suitable_job_list)
     puts "Some of the jobs that would potentially suit someone with an #{temperament} personality are: ".magenta
     suitable_job_list.each do |job|

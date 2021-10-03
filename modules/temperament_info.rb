@@ -1,6 +1,6 @@
 module TemperamentInfo
-  
-  
+
+  # create series of functions to display different information depending on the user's temperament type
   def self.artisan_info
     puts "It looks like you're an artisan! Artisans have a natural affinity towards the arts, creative and highly-skilled activities.".green
   end

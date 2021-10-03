@@ -2,9 +2,8 @@ require 'json'
 require_relative '../classes/occupation'
 
 module OccupationData
-
+  # Attempt to load job data from json occupations file and throw error if this is unsuccessful
   def self.load_occupation_data(occupation_data)
-    # Attempt to load job data from json occupations file and throw error if this is unsuccessful
     begin
     data = JSON.load_file(occupation_data, symbolize_names: true)
     rescue LoadError => e
@@ -23,10 +22,4 @@ module OccupationData
     occupations
   end
   
-  def self.generate_random_color
-    colors = [".blue", ".green", ".cyan", ".magenta", ".yellow"]
-    color = colors.sample
-    color
-  end
-
 end

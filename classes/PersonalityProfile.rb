@@ -4,12 +4,13 @@ require_relative '../errors/invalid_input_error'
 
 class PersonalityProfile
 
+  # Make attributes accessible to other class methods
   attr_accessor :quiz_answers, :profile_map
 
   def initialize
     # Create instance variable to store quiz answers
     @quiz_answers = []
-    # Create instance variable to store personality profile and will be used to generate personality type by user
+    # Create instance variable to store personality profile that will be used to generate personality type 
     @profile_map = {
     extraverted: 0,
     introverted: 0,
@@ -23,13 +24,13 @@ class PersonalityProfile
   end
 
 
-  # Validate that answer is "a" OR "b" (will convert uppercase to lowercase)
+  # Validate that answer is "a", "b" , "--quit" or "-q"  (will convert uppercase a|b to lowercase)
   def validate_answer(answer)
     (answer.match(/a|b/) && answer.length == 1) || answer.match(/--quit|-q/)
   end
 
 
-  # Get valid answer for test questions, otherwise raise error (colorized in red)
+  # Get valid answer for test questions, otherwise raise custom error (colorized in red)
   def get_answer
     answer = gets.chomp.downcase.strip
     raise InvalidInputError, "Please enter 'a' or 'b' to answer, or '-q' or '--quit' to exit".red unless self.validate_answer(answer)
@@ -37,11 +38,10 @@ class PersonalityProfile
   end
 
 
-  # Commence personality quiz which will generate array of answers stored in state
+  # Commence personality quiz which will generate array of answers stored in object
   def quiz(file='./quiz.json')
   # reset instance variable to avoid duplicating answers
   @quiz_answers = []
-
   quiz_answers = []
 
   # Attempt to load quiz data, throw error if this fails
@@ -51,6 +51,8 @@ class PersonalityProfile
     puts e.message
     return
   end
+
+  # Format quiz data and display to user
   data.each do |item|
     begin
       pieces = item[:question].to_s.split("\n")
@@ -58,22 +60,24 @@ class PersonalityProfile
       puts "A) #{pieces[1]}".green
       puts "B) #{pieces[2]}".yellow
       answer = get_answer
-
-      if answer == "-q" || answer == "--quit"
+      # Return to main menu if answer is "-q" or "--quit"
+      if answer == "-q" || answer == "--quit" 
         return @quiz_answers = []  
       end
-   
+      # add answer to quiz_answers array
       quiz_answers << answer
     rescue => e 
+      # retry if answer is invalid
       puts e.message
       retry
     end 
   end
+  # add quiz array to instance variable array
   @quiz_answers.concat(quiz_answers)
   end 
 
 
-  # Use quiz answers to generate personality map which is stored in state
+  # Use quiz answers to generate personality map which is stored in object state
   def generate_personality_map
     return nil if @quiz_answers.empty?
 

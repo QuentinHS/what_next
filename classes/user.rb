@@ -9,9 +9,10 @@ require_relative '../modules/occupation_data'
 class User
   attr_reader :name 
   attr_accessor :personality_profile, :occupations, :personality_type, :temperament
-  
+  # load json occupation data
   include OccupationData
 
+  # initialize new user
   def initialize(name)
     @name = name
     @personality_profile = PersonalityProfile.new
@@ -26,10 +27,10 @@ class User
     return nil if self.personality_profile.quiz_answers.empty?
     # reset personality_type value to avoid duplication
     personality_type = ""
-    # Take personality values from personality_profile class instances
+    # Take personality values from personality_profile instance
     values = @personality_profile.profile_map.values
 
-    # use values to assign alphanumeric personality type 
+    # use values to assign personality type 
     personality_type += values[0] >= 5 ? "e" : "i"
     personality_type += values[2] >= 10 ? "s" : "n"
     personality_type += values[4] >= 10 ? "t" : "f"
@@ -39,7 +40,7 @@ class User
     @personality_type = personality_type
   end
 
-  # Assign a temperament (artisan, guardian, idealist or rational) to the user based on the scores on their quiz and personality profile
+  # Assign a temperament (artisan, guardian, idealist or rational) to the user based on the scores on their quiz results and personality profile
   def generate_personality_temperament
     return nil if self.personality_profile.quiz_answers.empty?
 
