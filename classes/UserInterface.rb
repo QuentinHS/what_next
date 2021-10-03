@@ -38,7 +38,7 @@ class UserInterface
     @user = User.new(name)
 
     # display further introduction to user
-    puts "Hi #{self.user.name}! If you're feeling a bit lost, you're welcome to take a short quiz that will hopefully give you a few helpful suggestions. If you already know your personality type (say you've done a Myer-Briggs or Keirsey-style test before), you can also search for jobs that might suit your personality type. Or you can just compare two career options directly.".cyan
+    puts "Hi #{self.user.name}! If you're feeling a bit lost, you're welcome to take a short personality quiz that will hopefully give you a few helpful career suggestions. You can also compare two career options directly across a range of metrics. If you already know your personality type (say you've done a Myer-Briggs-style test before), you can search for careers that might suit your personality type. ".cyan
   end
 
   # display menu options to user
@@ -81,6 +81,7 @@ class UserInterface
     begin 
     input = CompareOccupations.get_input(data)
     @jobs = CompareOccupations.get_occupation(data, input[:first_occupation], input[:second_occupation])
+    Help.metrics_help
     @answer = @prompt.select("By which metric which you like to compare these jobs?".yellow, %w(Salary Growth), 'Job Size', 'Vulnerability to Automation', 'Return to Main Menu')
     # return to main menu if "-q" or "--quit" options are selected
     rescue QuitError => e
@@ -133,6 +134,7 @@ class UserInterface
       self.show_menu
       self.choose_menu_option(data)
     when "Exit"
+      puts "Thanks for using What Next, we hope to see you again soon!".magenta
       return
     end
   end

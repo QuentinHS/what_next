@@ -1,4 +1,3 @@
-
 require 'json'
 require 'colorize'
 require_relative '../classes/occupation'
@@ -19,7 +18,7 @@ module CompareOccupations
   def self.get_input(occupation_data)
     occupations = OccupationData.load_occupation_data(occupation_data)
       # Get user input for first occupation comparison choice
-    puts "Please enter the first occupation:"
+    puts "Please enter the first occupation:".yellow
     first_occupation = gets.chomp.strip.downcase
     # Return from function if user desires
 
@@ -34,7 +33,7 @@ module CompareOccupations
     
     
     # Get user input for second occupation comparison choice
-    puts "Please enter the second occupation:"
+    puts "Please enter the second occupation:".magenta
     second_occupation = gets.chomp.strip.downcase
     
     raise QuitError if second_occupation == "-q" || second_occupation == "--quit"
