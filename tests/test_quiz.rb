@@ -10,7 +10,7 @@ class QuizTest < Test::Unit::TestCase
     # Check if user answers are valid - regex returns true if valid
     assert_equal(true, user.personality_profile.validate_answer("a"))
     assert_equal(true, user.personality_profile.validate_answer("b"))
-    # # Ensure that invalid input will not return false
+    # Ensure that invalid input returns false 
     refute_equal(true, user.personality_profile.validate_answer("invalid answer"))
  
   end

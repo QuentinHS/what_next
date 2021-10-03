@@ -8,14 +8,14 @@ class TestComparison < Test::Unit::TestCase
 # create test to check user input for occupation comparison
   def test_occupation_comparison_input
     data = OccupationData.load_occupation_data('../occupation_data.json')
-    # test occupation input by primary name
+    # test occupation input by primary name. Valid occupations should return true.
     assert_equal(true, CompareOccupations.validate_comparison(data, "accountant"))
     assert_equal(true, CompareOccupations.validate_comparison(data, "teacher"))
     assert_equal(true, CompareOccupations.validate_comparison(data, "nurse"))
-    # test occupation input by alias
+    # test occupation input by alias. Aliased names should also return true.
     assert_equal(true, CompareOccupations.validate_comparison(data, "banker"))
     assert_equal(true, CompareOccupations.validate_comparison(data, "physio"))
-    # ensure invalid occupations aren't compared
+    # ensure invalid occupations aren't compared. Invalid names will return false.
     refute_equal(true, CompareOccupations.validate_comparison(data, "not_a_profession"))
     refute_equal(true, CompareOccupations.validate_comparison(data, "453543543"))
   end
